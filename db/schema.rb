@@ -11,20 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151208003416) do
+ActiveRecord::Schema.define(version: 20151210003907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
-    t.integer  "cola"
     t.integer  "size"
-    t.integer  "open_rentals"
-    t.integer  "avg_rental_cost"
+    t.integer  "open_housing"
+    t.integer  "housing_cost"
     t.string   "politics"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "name_id"
   end
 
   create_table "cities_industries", id: false, force: :cascade do |t|
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20151208003416) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"
+    t.integer  "type_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -54,6 +55,7 @@ ActiveRecord::Schema.define(version: 20151208003416) do
     t.datetime "updated_at"
     t.integer  "student_loan_pmt"
     t.integer  "jobs_id"
+    t.string   "college"
   end
 
 end
