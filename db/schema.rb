@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151210003907) do
+ActiveRecord::Schema.define(version: 20151210192426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20151210003907) do
   create_table "industries", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "type"
+    t.string   "classification"
     t.integer  "type_id"
   end
 
@@ -48,13 +48,7 @@ ActiveRecord::Schema.define(version: 20151210003907) do
     t.string   "job_title"
     t.integer  "avg_salary"
     t.integer  "industry_id"
-  end
-
-  create_table "surveys", force: :cascade do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.integer  "student_loan_pmt"
-    t.integer  "jobs_id"
     t.string   "college"
   end
 
