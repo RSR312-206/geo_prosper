@@ -1,5 +1,9 @@
+
+<!-- collection_select(:post, :category_id, Category.all, :id, :name, -->
 <div>
   <%= form_for @job do |f| %>
+    <%= f.label "What industry are you in?" %>
+  <%= collection_select(:job, :industry_id, Industry.all, :id, :classification) %>
     <%= f.label "College" %>
       <%= f.text_field :college %>
     <%= f.label "Monthly Student Loan Debt Amount" %>
@@ -9,3 +13,4 @@
     <%= f.submit "Create" %>
   <% end %>
 </div>
+

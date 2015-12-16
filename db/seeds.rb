@@ -17,9 +17,62 @@ Industry.create([
   {classification: "Mining, quarrying, and oil and gas extraction", type_id: 21},
   {classification: "Utilities", type_id: 22},
   {classification: "Agriculture, forestry, fishing, and hunting", type_id: 11},
-  {classification: "Construction", type_id: 72}
+  {classification: "Construction", type_id: 72},
 ])
 
+CitiesIndustries.create([
+  { city_id: 1, industry_id: 1 },
+  { city_id: 1, industry_id: 2 },
+  { city_id: 1, industry_id: 4 },
+  { city_id: 1, industry_id: 5 },
+  { city_id: 1, industry_id: 6 },
+  { city_id: 1, industry_id: 7 },
+
+  { city_id: 2, industry_id: 1 },
+  { city_id: 2, industry_id: 2 },
+  { city_id: 2, industry_id: 3 },
+  { city_id: 2, industry_id: 6 },
+  { city_id: 2, industry_id: 7 },
+
+  { city_id: 3, industry_id: 1 },
+  { city_id: 3, industry_id: 3 },
+  { city_id: 3, industry_id: 4 },
+  { city_id: 3, industry_id: 5 },
+  { city_id: 3, industry_id: 6 },
+
+  { city_id: 4, industry_id: 2 },
+  { city_id: 4, industry_id: 3 },
+  { city_id: 4, industry_id: 5 },
+  { city_id: 4, industry_id: 7 },
+  { city_id: 4, industry_id: 8 },
+
+  { city_id: 5, industry_id: 1 },
+  { city_id: 5, industry_id: 3 },
+  { city_id: 5, industry_id: 5 },
+  { city_id: 5, industry_id: 7 },
+  { city_id: 5, industry_id: 8 },
+
+  { city_id: 6, industry_id: 2 },
+  { city_id: 6, industry_id: 4 },
+  { city_id: 6, industry_id: 5 },
+  { city_id: 6, industry_id: 7 },
+  { city_id: 6, industry_id: 1 },
+
+  { city_id: 7, industry_id: 1 },
+  { city_id: 7, industry_id: 3 },
+  { city_id: 7, industry_id: 4 },
+  { city_id: 7, industry_id: 5 },
+  { city_id: 7, industry_id: 6 },
+
+  { city_id: 8, industry_id: 3 },
+  { city_id: 8, industry_id: 4 },
+  { city_id: 8, industry_id: 5 },
+  { city_id: 8, industry_id: 6 },
+  { city_id: 8, industry_id: 8 },
+  ])
 
 
-
+Job.create([
+  { job_title: "Nurse", industry_id: 1, student_loan_pmt: 340, college: "University of Washington"},
+  { job_title: "Software Developer", industry_id: 3, student_loan_pmt: 300, college: "University of Illinois"}
+])

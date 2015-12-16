@@ -4,8 +4,11 @@ class JobsController < ApplicationController
   end
 
   def create
-    @job = Job.new job_params
+
+    @job = Job.new(job_params)
     if @job.save
+      job_params = params[:id]
+      JobWorker.perform_async(job_params)
       redirect_to job_path(@job)
     else
       flash[:alert] = "something went wrong"
@@ -15,19 +18,17 @@ class JobsController < ApplicationController
   end
 
   def show
+
     @job = Job.find(params[:id])
   end
 
   private
-    def job_params
-      params.require(:job).permit(:student_loan_pmt, :college, :job_title, :industry_id, :avg_salary )
-    end
+
+  def job_params
+    params.require(:job).permit(:student_loan_pmt, :college, :job_title, :industry_id, :avg_salary)
+  end
 
 end
-
-#how is the worker triggered from the controller?
-
-#how do you pass parameters to the worker?
 
 #Once the worker is kicked off, it will send the results to the database.
 
