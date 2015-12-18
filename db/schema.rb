@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151210192426) do
+ActiveRecord::Schema.define(version: 20151217231736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bls_components", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "location"
+    t.integer  "location_id"
+    t.string   "title"
+    t.string   "title_id"
+  end
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -25,11 +34,13 @@ ActiveRecord::Schema.define(version: 20151210192426) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "name_id"
+    t.string   "bls_city_code"
   end
 
   create_table "cities_industries", id: false, force: :cascade do |t|
     t.integer "city_id",     null: false
     t.integer "industry_id", null: false
+    t.integer "rank"
   end
 
   add_index "cities_industries", ["city_id", "industry_id"], name: "index_cities_industries_on_city_id_and_industry_id", using: :btree

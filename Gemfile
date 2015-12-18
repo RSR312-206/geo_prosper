@@ -26,7 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'pry-rails'
 
 gem 'excon'
+
 gem 'sidekiq'
+
 gem 'redis'
 
 # Use ActiveModel has_secure_password

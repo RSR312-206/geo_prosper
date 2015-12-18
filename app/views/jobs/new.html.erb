@@ -9,7 +9,7 @@
     <%= f.label "Monthly Student Loan Debt Amount" %>
       <%=  f.number_field :student_loan_pmt %>
     <%= f.label "Desired Job Title" %>
-      <%= f.text_field :job_title %>
+      <%= f.collection_select :job_title, BlsComponent.all, :title, :title %>
     <%= f.submit "Create" %>
   <% end %>
 </div>

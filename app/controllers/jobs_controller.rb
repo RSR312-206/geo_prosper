@@ -4,22 +4,22 @@ class JobsController < ApplicationController
   end
 
   def create
-
     @job = Job.new(job_params)
     if @job.save
-      job_params = params[:id]
-      JobWorker.perform_async(job_params)
+      job_id = @job.id
+      industry_id = @job.industry_id
+      IndustryWorker.perform_async(industry_id, job_id)
       redirect_to job_path(@job)
     else
       flash[:alert] = "something went wrong"
-      redirect_to :new
+      render :new
     end
 
   end
 
   def show
-
     @job = Job.find(params[:id])
+    @job.avg_salary = @job.avg_salary
   end
 
   private
