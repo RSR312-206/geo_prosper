@@ -4,11 +4,11 @@
   <%= form_for @job do |f| %>
     <%= f.label "What industry are you in?" %>
   <%= collection_select(:job, :industry_id, Industry.all, :id, :classification) %>
-    <%= f.label "College" %>
+    <%= f.label "Select your College or University" %>
       <%= f.text_field :college %>
-    <%= f.label "Monthly Student Loan Debt Amount" %>
+    <%= f.label "Your Monthly Student Loan Debt Amount" %>
       <%=  f.number_field :student_loan_pmt %>
-    <%= f.label "Desired Job Title" %>
+    <%= f.label "What kind of job title best represents you?" %>
       <%= f.collection_select :job_title, BlsComponent.all, :title, :title %>
     <%= f.submit "Create" %>
   <% end %>

@@ -8,7 +8,7 @@ class JobsController < ApplicationController
     if @job.save
       job_id = @job.id
       industry_id = @job.industry_id
-      IndustryWorker.perform_async(industry_id, job_id)
+      JobWorker.perform_async(industry_id, job_id)
       redirect_to job_path(@job)
     else
       flash[:alert] = "something went wrong"
@@ -19,7 +19,7 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
-    @job.avg_salary = @job.avg_salary
+    @cities_jobs_wages = CitiesJobsWages.where(job_id: @job.id).all
   end
 
   private
@@ -30,6 +30,4 @@ class JobsController < ApplicationController
 
 end
 
-#Once the worker is kicked off, it will send the results to the database.
-
-#then, you need to call that records in def show for it to be rendered on to the show.html.erb view.
+#

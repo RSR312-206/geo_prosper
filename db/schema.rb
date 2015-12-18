@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151217231736) do
+ActiveRecord::Schema.define(version: 20151218195121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,8 +19,6 @@ ActiveRecord::Schema.define(version: 20151217231736) do
   create_table "bls_components", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "location"
-    t.integer  "location_id"
     t.string   "title"
     t.string   "title_id"
   end
@@ -46,6 +44,14 @@ ActiveRecord::Schema.define(version: 20151217231736) do
   add_index "cities_industries", ["city_id", "industry_id"], name: "index_cities_industries_on_city_id_and_industry_id", using: :btree
   add_index "cities_industries", ["industry_id", "city_id"], name: "index_cities_industries_on_industry_id_and_city_id", using: :btree
 
+  create_table "cities_jobs_wages", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "wage"
+    t.integer  "city_id"
+    t.integer  "job_id"
+  end
+
   create_table "industries", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -57,7 +63,6 @@ ActiveRecord::Schema.define(version: 20151217231736) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "job_title"
-    t.integer  "avg_salary"
     t.integer  "industry_id"
     t.integer  "student_loan_pmt"
     t.string   "college"
