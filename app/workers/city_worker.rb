@@ -2,11 +2,9 @@ class CityWorker
   include Sidekiq::CityWorker
   sidekiq_options retry: false
 
-  def perform(city_id, job_id)
+  def perform(city_id)
 
-    census_city_code = CitiesIndustries.where(industry_id: industry_id).joins(:city).pluck('cities.bls_city_code')
-
-    city = City.find(city_id, job_id)
+    city = City.find(city_id)
 
     api_call = "http://api.censusreporter.org/1.0/data/show/latest?"
 
@@ -24,5 +22,3 @@ class CityWorker
     Excon.get("#{api_call}table_ids=#{table_ids}&geo_ids=16000US#{geo_ids}")
   end
 end
-
-#on the database: total rental vacancies.

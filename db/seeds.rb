@@ -1,10 +1,10 @@
 City.create([
-  {name: "Los Angeles-Long Beach-Santa Ana, CA", size: 13131431, open_housing: 94, housing_cost: 453500, name_id: 31080, bls_city_code: "0031100"},
-  {name: "Chicago-Joliet-Naperville, IL-IN-WI", size: 9537040, open_housing: 91 , housing_cost: 206300, name_id: 16980, bls_city_code: "0016980"},
-  {name: "Boston-Cambridge-Newton, MA-NH", size: 4684299 , open_housing: 93 , housing_cost: 363200, name_id: 14460, bls_city_code: "0071654"},
-  {name: "Houston-Sugar Land-Baytown, TX", size: 6313158 , open_housing: 90 , housing_cost: 144400, name_id: 26420, bls_city_code: "0026420"},
-  {name: "Denver-Aurora-Broomfield, CO", size: 2697476, open_housing: 94, housing_cost: 257000, name_id: 19740, bls_city_code: "0019740"},
-  {name: "Las Vegas-Henderson-Paradise, NV", size: 2027868, open_housing: 84 , housing_cost: 162300, name_id: 29820, bls_city_code: "0029820"}
+  {name: "Los Angeles-Long Beach-Santa Ana, CA", size: 13131431, open_housing: 94, housing_cost: 453500, name_id: 31080, bls_city_code: "0031100", census_city_code: "0644000" },
+  {name: "Chicago-Joliet-Naperville, IL-IN-WI", size: 9537040, open_housing: 91 , housing_cost: 206300, name_id: 16980, bls_city_code: "0016980", census_city_code: "1714000" },
+  {name: "Boston-Cambridge-Newton, MA-NH", size: 4684299 , open_housing: 93 , housing_cost: 363200, name_id: 14460, bls_city_code: "0071654", census_city_code: "2507000" },
+  {name: "Houston-Sugar Land-Baytown, TX", size: 6313158 , open_housing: 90 , housing_cost: 144400, name_id: 26420, bls_city_code: "0026420", census_city_code: "4835000" },
+  {name: "Denver-Aurora-Broomfield, CO", size: 2697476, open_housing: 94, housing_cost: 257000, name_id: 19740, bls_city_code: "0019740", census_city_code: "0820000" },
+  {name: "Las Vegas-Henderson-Paradise, NV", size: 2027868, open_housing: 84 , housing_cost: 162300, name_id: 29820, bls_city_code: "0029820", census_city_code: "3240000" }
 ])
 
 Industry.create([
