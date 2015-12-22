@@ -8,7 +8,8 @@ class JobsController < ApplicationController
     if @job.save
       job_id = @job.id
       industry_id = @job.industry_id
-      JobWorker.perform_async(industry_id, job_id)
+      AnalyzeSurvey.new(industry_id, job_id).run
+
       redirect_to job_path(@job)
     else
       flash[:alert] = "something went wrong"

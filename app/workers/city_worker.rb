@@ -16,7 +16,7 @@ class CityWorker
     table_id6 = "B19113" #median salary by household
     table_id7 = "B23020" #Mean Usual Hours Worked in the Past 12 Months for Workers 16 to 64 Years by Gender
     geo_ids = city.census_city_code
-
+    table_id8 = "B03001" #median salary by individual
     table_ids = "#{table_id1},#{table_id2},#{table_id3},#{table_id4},#{table_id5},#{table_id6},#{table_id7}"
 
     response = Excon.get("#{api_call}table_ids=#{table_ids}&geo_ids=16000US#{geo_ids}")
