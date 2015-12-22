@@ -5,7 +5,7 @@ Job Title:  <%= @job.job_title %><br>
 <% @cities_jobs_wages.each do |job| %>
   Salary: $<%= job.wage * 40 * 54 %>
   City: <%= job.city.name %><br>
-  Occupancy: <%= job.city.open_housing %><br>
+  Open Housing: <%= job.city.open_housing %><br>
   Housing Cost: $<%= job.city.housing_cost %> <br>
   Unemployment by city: <%= job.city.unemployment %><br>
   Average Commute Time: <%= job.city.commute_time %> <br>
