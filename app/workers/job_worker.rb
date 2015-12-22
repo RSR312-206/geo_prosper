@@ -29,19 +29,17 @@ class JobWorker
 
     series = data['Results']['series']
     message = data["message"]
-    puts series
     series.each do |s|
-      if s['data'].empty?
-        Rails.logger.warn "CitiesIndustries not created!"
-        next
-      end
+      # if s['data'].empty?
+      #   Rails.logger.warn "CitiesIndustries not created!"
+      #   next
+      # end
 
       wage = s["data"][0]["value"]
       series_id = s["seriesID"]
       puts "the job salary is: #{wage} and the seriesID is #{series_id}"
 
       bls_city_code = series_id[4..10]
-      puts bls_city_code
 
       city_id = City.where(bls_city_code: bls_city_code).first.id
 
@@ -49,9 +47,9 @@ class JobWorker
 
       CityWorker.perform_async(city_id)
 
-      if cities_jobs_wages.persisted?
-        Rails.logger.info "CitiesJobsWages created! #{cities_jobs_wages.id}"
-      end
+      # if cities_jobs_wages.persisted?
+      #   Rails.logger.info "CitiesJobsWages created! #{cities_jobs_wages.id}"
+      # end
     end
   end
 end

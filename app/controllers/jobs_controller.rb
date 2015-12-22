@@ -19,7 +19,9 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
-    # @cities_jobs_wages = CitiesJobsWages.where(job_id: @job.id).all
+    @cities_jobs_wages = CitiesJobsWages.where(job_id: @job.id).all
+
+
   end
 
   private
