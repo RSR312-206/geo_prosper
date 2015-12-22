@@ -12,7 +12,7 @@ class AnalyzeSurvey
     city_set = cities_jobs_wages.length
 
     cities_jobs_wages.each do |city_job_wage|
-      city =  city
+      city =  city_job_wage.city_id
       wages[city] = city_job_wage.wage
 
       industries[city] = city_job_wage.cities_industries.rank
