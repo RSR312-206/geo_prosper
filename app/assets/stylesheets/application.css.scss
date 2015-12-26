@@ -12,7 +12,8 @@
  *
  *= require_tree .
  *= require_self
+ *= reqiure static_pages
+ *= require jobs
  */
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
