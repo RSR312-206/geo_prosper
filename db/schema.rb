@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151222002736) do
+ActiveRecord::Schema.define(version: 20151226024803) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20151222002736) do
     t.string   "commute_time"
     t.string   "income_by_household"
     t.string   "weekly_hours_worked"
+    t.integer  "rank"
   end
 
   create_table "cities_industries", id: false, force: :cascade do |t|

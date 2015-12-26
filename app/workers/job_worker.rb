@@ -1,6 +1,6 @@
 class JobWorker
   include Sidekiq::Worker
-  sidekiq_options retry: false
+  sidekiq_options retry: true, retry_count: 2
 
   def perform(industry_id, job_id)
     job = Job.find(job_id)
@@ -30,10 +30,10 @@ class JobWorker
     series = data['Results']['series']
     message = data["message"]
     series.each do |s|
-      # if s['data'].empty?
-      #   Rails.logger.warn "CitiesIndustries not created!"
-      #   next
-      # end
+      if s['data'].empty?
+        Rails.logger.warn "CitiesIndustries not created!"
+        next
+      end
 
       wage = s["data"][0]["value"]
       series_id = s["seriesID"]
@@ -47,9 +47,9 @@ class JobWorker
 
       CityWorker.perform_async(city_id)
 
-      # if cities_jobs_wages.persisted?
-      #   Rails.logger.info "CitiesJobsWages created! #{cities_jobs_wages.id}"
-      # end
+      if cities_jobs_wages.persisted?
+        Rails.logger.info "CitiesJobsWages created! #{cities_jobs_wages.id}"
+      end
     end
   end
 end

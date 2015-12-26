@@ -33,6 +33,10 @@ gem 'redis'
 
 gem 'awesome_print'
 
+gem 'bootstrap-sass', '~> 3.3.1'
+
+gem 'autoprefixer-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
