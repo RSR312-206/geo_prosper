@@ -3,23 +3,23 @@
   <fieldset class="form-group">
     <div class="container-fluid">
       <div class="col-lg-10 col-lg-offset-2">
-        <legend class="col-lg-10  ">Survey Form</legend>
+        <legend class="col-lg-10  "></legend>
         <%= form_for @job do |f| %>
           <div class="col-lg-10 form-group row" id="industry">
             <%= f.label "What industry are you in?", class: "col-lg-3 control-label" %>
-            <%= collection_select(:job, :industry_id, Industry.all, :id, :classification, {}, {:class=> "col-lg-8" }) %><br>
+            <%= collection_select(:job, :industry_id, Industry.all, :id, :classification, {prompt: "Please select"}, {:class=> "col-lg-8" }) %><br>
           </div>
-          <div class= "col-lg-10 form-group row">
+          <div class= "col-lg-10 form-group row" id="industry">
             <%= f.label "Fill in your College or University", class: "col-lg-3 control-label"%>
             <%= f.text_field :college, :class => "col-lg-6" %>
           </div>
-          <div class="col-lg-10 form-group row">
+          <div class="col-lg-10 form-group row" id="industry">
             <%= f.label "Monthly Student Loan Debt Amount", class: "col-lg-3 control-label" %>
             <%=  f.number_field :student_loan_pmt, :class => "col-lg-2" %>
           </div>
-          <div class="col-lg-10 form-group row">
+          <div class="col-lg-10 form-group row" id="industry">
             <%= f.label "What kind of job title best represents you?", class: "col-lg-3 control-label" %>
-            <%= f.collection_select(:job_title, BlsComponent.all, :title, :title, {}, {:class => "col-lg-8"}) %>
+            <%= f.collection_select(:job_title, BlsComponent.all, :title, :title, {prompt: "Please select"}, {:class => "col-lg-8"}) %>
           </div>
           <div class="col-lg-6 col-lg-offset-1">
             <%= f.submit "Create", class: "btn btn-primary btn-lg btn-block" %>
