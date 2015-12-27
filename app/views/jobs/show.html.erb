@@ -1,3 +1,4 @@
+
 College:  <%= @job.college %><br>
 Student Loan Payment:  <%= @job.student_loan_pmt %><br>
 Job Title:  <%= @job.job_title %><br>
@@ -13,3 +14,7 @@ Job Title:  <%= @job.job_title %><br>
   Median Household Income: <%= job.city.income_by_household %><br>
   Rank: <%= job.city.rank %><br>
 <% end %>
+
+<canvas id="myChart" width="400" height="400"></canvas>
+
+<%= javascript_include_tag "city_charts" %>
