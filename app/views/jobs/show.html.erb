@@ -3,18 +3,14 @@ College:  <%= @job.college %><br>
 Student Loan Payment:  <%= @job.student_loan_pmt %><br>
 Job Title:  <%= @job.job_title %><br>
 <br>
-<% @cities_jobs_wages.each do |job| %>
-  Salary: $<%= job.wage * 40 * 54 %>
-  City: <%= job.city.name %><br>
-  Open Housing: <%= job.city.open_housing %><br>
-  Housing Cost: $<%= job.city.housing_cost %> <br>
-  Unemployment by city: <%= job.city.unemployment %><br>
-  Average Commute Time: <%= job.city.commute_time %> <br>
-  Average weekly Hours worked in <%= job.city.name %>: <%= job.city.weekly_hours_worked %><br>
-  Median Household Income: <%= job.city.income_by_household %><br>
-  Rank: <%= job.city.rank %><br>
-<% end %>
+<canvas id="myChart" width="600" height="400"></canvas>
 
-<canvas id="myChart" width="400" height="400"></canvas>
-
+  <script type="text/javascript">
+    var xaxis = []
+    var yaxis = []
+    "<% @cities_jobs_wages.each do |job| %>"
+      xaxis.push("<%= job.city.name %>")
+      yaxis.push("<%= job.wage * 40 * 54 %>")
+    "<% end %>"
+  </script>
 <%= javascript_include_tag "city_charts" %>
