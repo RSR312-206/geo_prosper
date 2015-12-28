@@ -1,5 +1,13 @@
 html,body,div,span,applet,object,iframe,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,label,legend,p,blockquote,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;}body{line-height:1;color:black;background:white;}:focus{outline:0;}table{border-collapse:collapse;border-spacing:0;}caption,th,td{text-align:left;font-weight:normal;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}ol,ul{list-style:none;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}blockquote:before,blockquote:after,q:before,q:after{content:"";}blockquote,q{quotes:"" "";}abbr,acronym{border:0;}
 
+/* new survey page*/
+#new {
+  background: url(https://upload.wikimedia.org/wikipedia/commons/f/fa/Pagosa-Springs_The-Springs-Resort-and-Spa_2012-10-24.JPG) no-repeat center center fixed;
+  background-size: cover;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+/* show page*/
 #background-show-page {
   background: RGBA(175, 201, 253, 1);
 }
@@ -9,12 +17,6 @@ canvas {
   width: 600px;
 }
 
-#new {
-  background: url(https://upload.wikimedia.org/wikipedia/commons/f/fa/Pagosa-Springs_The-Springs-Resort-and-Spa_2012-10-24.JPG) no-repeat center center fixed;
-
-  background-size: cover;
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-}
 #industry  {
   margin: 20px;
 }
@@ -24,4 +26,79 @@ canvas {
 
 #titles {
   font-family:'Alegreya Sans', sans-serif;
+}
+
+
+/* industry table*/
+.list {
+  font-family: 'Alegreya Sans', sans-serif;
+  height: 400px;
+  width: 600px;
+}
+#td {
+  padding:10px;
+  border:solid 2px RGBA(78, 74, 72, 1);
+  font-size: 16px;
+}
+
+#input {
+  border:solid 1px #ccc;
+  border-radius: 5px;
+  padding:7px 14px;
+  margin-bottom:10px
+}
+#input:focus {
+  outline:none;
+  border-color:#aaa;
+}
+.sort {
+  padding:8px 30px;
+  border-radius: 6px;
+  border:none;
+  display:inline-block;
+  color:#fff;
+  text-decoration: none;
+  background-color: #28a8e0;
+  height:30px;
+}
+.sort:hover {
+  text-decoration: none;
+  background-color:#1b8aba;
+}
+.sort:focus {
+  outline:none;
+}
+.sort:after {
+  display:inline-block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  content:"";
+  position: relative;
+  top:-10px;
+  right:-5px;
+}
+.sort.asc:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #fff;
+  content:"";
+  position: relative;
+  top:4px;
+  right:-5px;
+}
+.sort.desc:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #fff;
+  content:"";
+  position: relative;
+  top:-4px;
+  right:-5px;
 }

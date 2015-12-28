@@ -28,29 +28,6 @@ $(function() {
      scaleFontSize: 10
   });
 
-
-//industry chart setup
-  var industry_chart = $("#industry_chart").get(0).getContext("2d");
-  var new_industry_chart = new Chart(industry_chart);
-
-  var industry_data = {
-        labels: industry_xaxis,
-        datasets: [
-            {
-                label: "",
-                fillColor: "RGBA(230, 210, 165, 1)",
-                strokeColor: "rgba(220,220,220,1)",
-                pointColor: "rgba(220,220,220,1)",
-                pointStrokeColor: "#fff",
-                pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(220,220,220,1)",
-                data: industry_yaxis
-            },
-        ]
-    };
-
-  new Chart(industry_chart).Bar(industry_data, {scaleFontSize: 10});
-
   //open housing
   var open_housing_chart = $("#open_housing").get(0).getContext("2d");
   var new_open_housing = new Chart(open_housing_chart);
@@ -124,7 +101,12 @@ $(function() {
 
   new Chart(hours_worked_chart).Line(hours_data, {scaleFontSize: 10});
 
+//industry list
+var list_options = {
+  valueNames: [ 'name', 'rank' ]
+};
 
+var userList = new List('industries-list', list_options);
 });
 
 
