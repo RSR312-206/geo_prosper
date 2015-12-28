@@ -12,7 +12,7 @@ class JobsController < ApplicationController
 
       redirect_to job_path(@job)
     else
-      flash[:alert] = "something went wrong"
+      flash[:alert] = "please fill out all the data in the survey."
       render :new
     end
 
@@ -22,6 +22,7 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     @cities_jobs_wages = CitiesJobsWages.where(job_id: @job.id).all
     @industries = CitiesIndustries.where(industry_id: @job.industry_id).joins(:city).all
+    @cities = City.where(rank: 1..10)
   end
 
   private

@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   get '/welcome', to: 'static_pages#index'
   get '/about', to: 'static_pages#about'
   resources :jobs, only: [:new, :create , :show]
+  resources :cities, only: [:show]
 end

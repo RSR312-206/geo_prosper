@@ -2,11 +2,25 @@
 <body id="background-show-page">
 College:  <%= @job.college %><br>
 Student Loan Payment:  <%= @job.student_loan_pmt %><br>
-<% @cities_jobs_wages.sort_by do |x| %>
-  <%= x.city.name %><br>
-  <%= x.city.rank %>
-<% end %>
 
+<div class= "row">
+  <table class="col-lg-6 col-lg-offset-3">
+    <thead>
+      <tr>
+        <th id="td"><b>Ranking</th>
+        <th id="td"><b>City</th>
+      </tr>
+    </thead>
+    <tbody class="list">
+      <% @cities.sort_by do |city| %>
+        <tr>
+          <th id="td"><%= city.rank %></th>
+          <th id="td"><%= link_to city.name, city_path(city) %></th>>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <br>
 <div class="row">
   <h3 class="col-lg-7" id="titles">Top Cities by Salary for <%= @job.job_title %></h3>
