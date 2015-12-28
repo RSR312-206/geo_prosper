@@ -1,16 +1,45 @@
 
 College:  <%= @job.college %><br>
 Student Loan Payment:  <%= @job.student_loan_pmt %><br>
-Job Title:  <%= @job.job_title %><br>
-<br>
-<canvas id="myChart" width="600" height="400"></canvas>
 
-  <script type="text/javascript">
-    var xaxis = []
-    var yaxis = []
-    "<% @cities_jobs_wages.each do |job| %>"
-      xaxis.push("<%= job.city.name %>")
-      yaxis.push("<%= job.wage * 40 * 54 %>")
+<br>
+<div class="row">
+  <h3 class="col-lg-6" id="titles">Top Cities by Salary for <%= @job.job_title %></h3>
+  <h3 class="col-lg-offset-6" id="title">Top Cities for Your industry </h3>
+</div>
+<div class="container-fluid">
+  <div class="row" >
+    <div class="col-lg-6" id="first-chart">
+      <canvas id="salary_chart" width="600" height="400"></canvas>
+    </div>
+    <div class="col-lg-6">
+      <canvas id="industry_chart" width="600" height="400"></canvas>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6" id="second-row"
+      <canvas id="open_housing" width="600" height="400"></canvas>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  var xaxis = []
+  var salary_yaxis = []
+  var open_housing_yaxis = []
+  "<% @cities_jobs_wages.each do |job| %>"
+    xaxis.push("<%= job.city.name %>")
+    salary_yaxis.push("<%= job.wage * 40 * 54 %>")
+    open_housing_yaxis.push("<%= job.city.open_housing %>")
+  "<% end %>"
+  </script>
+
+  <script type= "text/javascript">
+    var industry_xaxis = []
+    var industry_yaxis = []
+    "<% @industries.each do |industry| %>"
+      industry_xaxis.push("<%= industry.city.name %>")
+      industry_yaxis.push("<%= industry.rank %>")
     "<% end %>"
   </script>
+
 <%= javascript_include_tag "city_charts" %>
