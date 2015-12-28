@@ -1,29 +1,40 @@
 
+<body id="background-show-page">
 College:  <%= @job.college %><br>
 Student Loan Payment:  <%= @job.student_loan_pmt %><br>
 
 <br>
 <div class="row">
   <h3 class="col-lg-6" id="titles">Top Cities by Salary for <%= @job.job_title %></h3>
-  <h3 class="col-lg-offset-6" id="title">Top Cities for Your industry </h3>
+  <h3 class="col-lg-offset-6" id="titles">Top Cities for Your industry </h3>
 </div>
 <div class="container-fluid">
   <div class="row" >
     <div class="col-lg-6">
-      <canvas id="salary_chart" width="600" height="400"></canvas>
+      <canvas id="salary_chart"></canvas>
     </div>
     <div class="col-lg-6">
-      <canvas id="industry_chart" width="600" height="400"></canvas>
+      <canvas id="industry_chart"></canvas>
     </div>
   </div>
-    <div class="row">
-    <h3 class="col-lg-6" id="titles">Percentage of Open Housing by City</h3>
-    <h3 class="col-lg-offset-6" id="title"></h3>
+  <div class="row">
+    <h3 class="col-lg-6" id="titles">Percentage of Occupied Housing by City</h3>
+    <h3 class="col-lg-offset-6" id="titles">Unemployment</h3>
   </div>
   <div class="row">
     <div class="col-lg-6">
-      <canvas id="open_housing" width="600" height="400"></canvas>
-      <canvas id="unemployment" width="600" height="400"></canvas>
+      <canvas id="open_housing"></canvas>
+    </div>
+    <div class="col-lg-6">
+      <canvas id="unemployment"></canvas>
+    </div>
+  </div>
+  <div class="row">
+    <h3 class="col-lg-6" id="titles">Hours worked per week</h3>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <canvas id="hours-worked"></canvas>
     </div>
   </div>
 </div>
@@ -32,11 +43,13 @@ Student Loan Payment:  <%= @job.student_loan_pmt %><br>
   var salary_yaxis = []
   var open_housing_yaxis = []
   var unemployment_data = []
+  var hours_worked_data = []
   "<% @cities_jobs_wages.each do |job| %>"
     xaxis.push("<%= job.city.name %>")
     salary_yaxis.push("<%= job.wage * 40 * 54 %>")
     open_housing_yaxis.push("<%= job.city.open_housing %>")
     unemployment_data.push("<%= job.city.unemployment.to_f.round(2) * 100 %>")
+    hours_worked_data.push("<%= job.city.weekly_hours_worked %>")
   "<% end %>"
   </script>
 
@@ -48,5 +61,6 @@ Student Loan Payment:  <%= @job.student_loan_pmt %><br>
       industry_yaxis.push("<%= industry.rank %>")
     "<% end %>"
   </script>
+</div>
 
 <%= javascript_include_tag "city_charts" %>
