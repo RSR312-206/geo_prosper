@@ -32,4 +32,3 @@ class JobsController < ApplicationController
 
 end
 
-#

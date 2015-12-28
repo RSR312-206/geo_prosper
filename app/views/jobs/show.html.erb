@@ -9,16 +9,21 @@ Student Loan Payment:  <%= @job.student_loan_pmt %><br>
 </div>
 <div class="container-fluid">
   <div class="row" >
-    <div class="col-lg-6" id="first-chart">
+    <div class="col-lg-6">
       <canvas id="salary_chart" width="600" height="400"></canvas>
     </div>
     <div class="col-lg-6">
       <canvas id="industry_chart" width="600" height="400"></canvas>
     </div>
   </div>
+    <div class="row">
+    <h3 class="col-lg-6" id="titles">Percentage of Open Housing by City</h3>
+    <h3 class="col-lg-offset-6" id="title"></h3>
+  </div>
   <div class="row">
-    <div class="col-lg-6" id="second-row"
+    <div class="col-lg-6">
       <canvas id="open_housing" width="600" height="400"></canvas>
+      <canvas id="unemployment" width="600" height="400"></canvas>
     </div>
   </div>
 </div>
@@ -26,10 +31,12 @@ Student Loan Payment:  <%= @job.student_loan_pmt %><br>
   var xaxis = []
   var salary_yaxis = []
   var open_housing_yaxis = []
+  var unemployment_data = []
   "<% @cities_jobs_wages.each do |job| %>"
     xaxis.push("<%= job.city.name %>")
     salary_yaxis.push("<%= job.wage * 40 * 54 %>")
     open_housing_yaxis.push("<%= job.city.open_housing %>")
+    unemployment_data.push("<%= job.city.unemployment.to_f.round(2) * 100 %>")
   "<% end %>"
   </script>
 
