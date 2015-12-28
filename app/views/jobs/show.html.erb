@@ -2,6 +2,10 @@
 <body id="background-show-page">
 College:  <%= @job.college %><br>
 Student Loan Payment:  <%= @job.student_loan_pmt %><br>
+<% @cities_jobs_wages.sort_by do |x| %>
+  <%= x.city.name %><br>
+  <%= x.city.rank %>
+<% end %>
 
 <br>
 <div class="row">
@@ -13,29 +17,29 @@ Student Loan Payment:  <%= @job.student_loan_pmt %><br>
     <div class="col-lg-6">
       <canvas id="salary_chart"></canvas>
     </div>
-    <div class="col-lg-5 col-lg-offset-1">
-      <div id="industries-list">
+    <div class="col-lg-6" id="industries-list">
+      <div class="col-lg-offset-3">
         <input id="input" class="search" placeholder="Search" />
         <button class="sort" data-sort="rank">
           Sort by Rank
         </button>
-        <table>
-          <thead>
-            <tr>
-              <th id="td">Industry</th>
-              <th id="td">Ranking</th>
-            </tr>
-          </thead>
-          <tbody class="list">
-            <% @industries.each do |industry| %>
-              <tr>
-                <td id="td"class="name"><%= industry.city.name %></td>
-                <td id="td"class="rank"><%= industry.rank %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
       </div>
+      <table class="col-lg-offset-3">
+        <thead>
+          <tr>
+            <th id="td">Industry</th>
+            <th id="td">Ranking</th>
+          </tr>
+        </thead>
+        <tbody class="list">
+          <% @industries.each do |industry| %>
+            <tr>
+              <td id="td"class="name"><%= industry.city.name %></td>
+              <td id="td"class="rank"><%= industry.rank %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
   <div class="row">
@@ -74,5 +78,7 @@ Student Loan Payment:  <%= @job.student_loan_pmt %><br>
     hours_worked_data.push("<%= job.city.weekly_hours_worked %>")
   "<% end %>"
   </script>
+
+
 
 <%= javascript_include_tag "city_charts" %>

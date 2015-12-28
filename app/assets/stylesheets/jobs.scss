@@ -9,12 +9,14 @@ html,body,div,span,applet,object,iframe,a,abbr,acronym,address,big,cite,code,del
 
 /* show page*/
 #background-show-page {
-  background: RGBA(175, 201, 253, 1);
+  background: RGBA(247, 248, 243, 1);
 }
 
 canvas {
+  background: RGBA(255, 255, 255, 1);
   height: 400px;
   width: 600px;
+  padding: 20px;
 }
 
 #industry  {
@@ -35,6 +37,12 @@ canvas {
   height: 400px;
   width: 600px;
 }
+
+#industries-list {
+  background: RGBA(255, 255, 255, 1);
+  padding: 20px;
+}
+
 #td {
   padding:10px;
   border:solid 2px RGBA(78, 74, 72, 1);
