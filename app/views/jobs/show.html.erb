@@ -3,7 +3,7 @@
   <div class="containter-fluid">
     <div >
       <div class="row-fluid">
-        <div class="col-sm-2">
+        <div class="col-sm-2 no-float">
           <table id="ranking-table">
             <thead>
               <tr>
@@ -36,19 +36,33 @@
                   hours_worked_data.push("<%= job.city.weekly_hours_worked %>")
                 "<% end %>"
               </script>
-          <div class="col-lg-6 col-lg-offset-3">
+             <!--  salary -->
+          <div class="col-lg-6 col-lg-offset-1">
             <canvas id="salary_chart"></canvas>
           </div>
           <div class="col-lg-3 col-lg-offset3" id="salary-content">
             <p>This primary chart shows salary comparison for your job title across all cities in which your industry was represented as one of the top 20 industreis in the area. The data comes from the Q3 salary survey by the Bureau of Labor Statistics</p>
           </div>
-          <div class="col-lg-6">
+
+            <!-- occupied housing -->
+          <div class="col-lg-3 col-lg-offset-1" id="salary-content">
+            <p> OCCUPIED HOUSING tristique, diam enim tristique ante, non scelerisque libero neque in turpis. Aenean vehicula tempus odio nec pellentesque. Donec nunc eros, laoreet vitae tincidunt sed, aliquam vel nunc.</p>
+          </div>
+          <div class="col-lg-5 col-lg-offset-4">
             <canvas id="open_housing"></canvas>
           </div>
-          <div class="col-lg-6">
+          <!-- unemployment -->
+          <div class="col-lg-6 col-lg-offset-2">
             <canvas id="unemployment"></canvas>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-3 col-lg-offset-1" id="salary-content">
+            <p> UNEMPLOYMENT tristique, diam enim tristique ante, non scelerisque libero neque in turpis. Aenean vehicula tempus odio nec pellentesque. Donec nunc eros, laoreet vitae tincidunt sed, aliquam vel nunc.</p>
+          </div>
+         <!--  hours worked -->
+          <div class="col-lg-3 col-lg-offset-2" id="salary-content">
+            <p> HOURS WORKED tristique, diam enim tristique ante, non scelerisque libero neque in turpis. Aenean vehicula tempus odio nec pellentesque. Donec nunc eros, laoreet vitae tincidunt sed, aliquam vel nunc.</p>
+          </div>
+          <div class="col-lg-5 col-lg-offset-6">
             <canvas id="hours-worked"></canvas>
           </div>
         </div>
