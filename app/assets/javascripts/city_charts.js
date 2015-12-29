@@ -24,9 +24,11 @@ $(function() {
 //salary chart constrcutror instatiation and type= Bar.
   new Chart(salary_chart).Bar(s_data, {
      scaleLabel:
-      function(label){return  '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")},
-     scaleFontSize: 10
+      function(label){return  '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") },
+     scaleFontSize: 10,
+     scaleBeginAtZero : false
   });
+
 
   //open housing
   var open_housing_data = {
@@ -89,7 +91,7 @@ $(function() {
   };
 
   new Chart(unemployment_chart).Overlay(unemployment, {
-    pointDot: false, scaleLabel: "<%=value + '%' %>", scaleFontSize: 10 });
+    pointDot: true, scaleLabel: "<%=value + '%' %>", scaleFontSize: 10 });
 
 // hours worked by city
 
@@ -112,7 +114,7 @@ $(function() {
     ]
 };
 
-  new Chart(hours_worked_chart).Line(hours_data, {scaleFontSize: 10});
+  new Chart(hours_worked_chart).Line(hours_data, {scaleFontSize: 10 });
 
   //industry list
   var list_options = {
