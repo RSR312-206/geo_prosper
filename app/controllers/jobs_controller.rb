@@ -12,10 +12,9 @@ class JobsController < ApplicationController
 
       redirect_to job_path(@job)
     else
-      flash[:alert] = "please fill out all the data in the survey."
+      flash[:alert] = "Please fill out all the data in the survey."
       render :new
     end
-
   end
 
   def show

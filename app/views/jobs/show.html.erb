@@ -1,98 +1,100 @@
 
 <body id="background-show-page">
-College:  <%= @job.college %><br>
-Student Loan Payment:  <%= @job.student_loan_pmt %><br>
-
-<div class= "row">
-  <table class="col-lg-6 col-lg-offset-3">
-    <thead>
-      <tr>
-        <th id="td"><b>Ranking</th>
-        <th id="td"><b>City</th>
-      </tr>
-    </thead>
-    <tbody class="list">
-      <% @cities.sort_by do |city| %>
-        <tr>
-          <th id="td"><%= city.rank %></th>
-          <th id="td"><%= link_to city.name, city_path(city) %></th>>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
-<br>
-<div class="row">
-  <h3 class="col-lg-7" id="titles">Top Cities by Salary for <%= @job.job_title %></h3>
-  <h3 class="col-lg-offset-4" id="titles">Top Cities for Your industry </h3>
-</div>
-<div class="container-fluid">
-  <div class="row" >
-    <div class="col-lg-6">
-      <canvas id="salary_chart"></canvas>
-    </div>
-    <div class="col-lg-6" id="industries-list">
-      <div class="col-lg-offset-3">
-        <input id="input" class="search" placeholder="Search" />
-        <button class="sort" data-sort="rank">
-          Sort by Rank
-        </button>
-      </div>
-      <table class="col-lg-offset-3">
+  <div id="city-ranking-pic">
+    <div class="row" id="rank-chart">
+      <table class="col-lg-6 col-lg-offset-3">
         <thead>
           <tr>
-            <th id="td">Industry</th>
-            <th id="td">Ranking</th>
+            <th id="td"><b>Ranking</th>
+            <th id="td"><b>City</th>
           </tr>
         </thead>
         <tbody class="list">
-          <% @industries.each do |industry| %>
+          <% @cities.sort_by do |city| %>
             <tr>
-              <td id="td"class="name"><%= industry.city.name %></td>
-              <td id="td"class="rank"><%= industry.rank %></td>
+              <th id="td"><%= city.rank %></th>
+              <th id="td"><%= link_to city.name, city_path(city) %></th>
             </tr>
           <% end %>
         </tbody>
       </table>
+  </div>
+  <br>
+<div id="charts-main">
+  <div class="row">
+    <h3 class="col-lg-7" id="titles">Top Cities by Salary for <%= @job.job_title %></h3>
+    <h3 class="col-lg-offset-4" id="titles">Top Cities for Your industry </h3>
+  </div>
+  <div class="container-fluid">
+    <div class="row" >
+      <div class="col-lg-6">
+        <canvas id="salary_chart"></canvas>
+      </div>
+      <div class="col-lg-6" id="industries-list">
+        <div class="col-lg-offset-3">
+          <input id="input" class="search" placeholder="Search" />
+          <button class="sort" data-sort="rank">
+            Sort by Rank
+          </button>
+        </div>
+        <table class="col-lg-offset-3">
+          <thead>
+            <tr>
+              <th id="td">Industry</th>
+              <th id="td">Ranking</th>
+            </tr>
+          </thead>
+          <tbody class="list">
+            <% @industries.each do |industry| %>
+              <tr>
+                <td id="td"class="name"><%= industry.city.name %></td>
+                <td id="td"class="rank"><%= industry.rank %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <h3 class="col-lg-6" id="titles">Percentage of Occupied Housing by City</h3>
-    <h3 class="col-lg-offset-6" id="titles">Unemployment</h3>
-  </div>
-  <div class="row">
-    <div class="col-lg-6">
-      <canvas id="open_housing"></canvas>
+    <div class="row">
+      <h3 class="col-lg-6" id="titles">Percentage of Occupied Housing by City</h3>
+      <h3 class="col-lg-offset-6" id="titles">Unemployment</h3>
     </div>
-    <div class="col-lg-6">
-      <canvas id="unemployment"></canvas>
+    <div class="row">
+      <div class="col-lg-6">
+        <canvas id="open_housing"></canvas>
+      </div>
+      <div class="col-lg-6">
+        <canvas id="unemployment"></canvas>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <h3 class="col-lg-6" id="titles">Hours worked per week</h3>
-  </div>
-  <div class="row">
-    <div class="col-lg-6">
-      <canvas id="hours-worked"></canvas>
+    <div class="row">
+      <h3 class="col-lg-6" id="titles">Hours worked per week</h3>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <canvas id="hours-worked"></canvas>
+      </div>
     </div>
   </div>
 </div>
 
-<script type="text/javascript">
-  var xaxis = []
-  var salary_yaxis = []
-  var open_housing_yaxis = []
-  var unemployment_data = []
-  var hours_worked_data = []
-  "<% @cities_jobs_wages.each do |job| %>"
-    xaxis.push("<%= job.city.name %>")
-    salary_yaxis.push("<%= job.wage * 40 * 54 %>")
-    open_housing_yaxis.push("<%= job.city.open_housing %>")
-    unemployment_data.push("<%= job.city.unemployment.to_f.round(2) * 100 %>")
-    hours_worked_data.push("<%= job.city.weekly_hours_worked %>")
-  "<% end %>"
-  </script>
+  College:  <%= @job.college %><br>
+  Student Loan Payment:  <%= @job.student_loan_pmt %><br>
 
-
-
+  <script type="text/javascript">
+    var xaxis = []
+    var salary_yaxis = []
+    var open_housing_yaxis = []
+    var unemployment_data = []
+    var hours_worked_data = []
+    "<% @cities_jobs_wages.each do |job| %>"
+      xaxis.push("<%= job.city.name %>")
+      salary_yaxis.push("<%= job.wage * 40 * 54 %>")
+      open_housing_yaxis.push("<%= job.city.open_housing %>")
+      unemployment_data.push("<%= job.city.unemployment.to_f.round(2) * 100 %>")
+      hours_worked_data.push("<%= job.city.weekly_hours_worked %>")
+    "<% end %>"
+    </script>
+  </div>
+</body>
 <%= javascript_include_tag "city_charts" %>

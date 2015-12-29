@@ -7,28 +7,51 @@ html,body,div,span,applet,object,iframe,a,abbr,acronym,address,big,cite,code,del
   font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
-/* show page*/
-#background-show-page {
-  background: RGBA(247, 248, 243, 1);
+#main-survey-div {
+  background: RGBA(248, 248, 248, .5);
+  background-size: cover;
+  padding: 20px;
+  font-size: 15px;
+  position: absolute;
+  margin-top: 8%;
+  margin-bottom: 8%;
+
 }
+
+/* job show page*/
+#background-show-page {
+  background: RGBA(93, 153, 200, 1);
+  font-family:'Alegreya Sans', sans-serif;
+}
+
+#city-ranking-pic {
+  background: url(https://pixabay.com/static/uploads/photo/2013/07/12/15/54/chicago-150543_960_720.png) no-repeat center center fixed;
+  background-size: cover;
+  height: 10%;
+}
+
+#rank-chart {
+}
+
 
 canvas {
   background: RGBA(255, 255, 255, 1);
   height: 400px;
   width: 600px;
   padding: 20px;
+  margin-left: 10px;
+  border-radius: 15px;
+  box-shadow: 6px 7px 5px 0px rgba(0,0,0,0.75);
 }
 
 #industry  {
   margin: 20px;
 }
-#titles {
-  margin-left: 50px;
-
-}
 
 #titles {
   font-family:'Alegreya Sans', sans-serif;
+  color: white;
+  margin-left: 50px
 }
 
 
@@ -42,6 +65,8 @@ canvas {
 #industries-list {
   background: RGBA(255, 255, 255, 1);
   padding: 20px;
+  border-radius: 15px;
+  box-shadow: 6px 7px 5px 0px rgba(0,0,0,0.75);
 }
 
 #td {
@@ -111,3 +136,76 @@ canvas {
   top:-4px;
   right:-5px;
 }
+
+/*city show page*/
+
+#city-title {
+  height: 200px;
+  background: url(https://cdn.artaic.com/wp-content/uploads/2015/03/artaic-blue-cityscape-cityscape-seaside-tile-0305414-900x600.jpg) no-repeat center center fixed;
+  background-size: cover;
+  color: black;
+}
+
+#city-show-page {
+  background: RGBA(81, 152, 203, 1);
+}
+
+#city-details {
+  margin: 30px;
+  padding: 20px;
+  height: 250px;
+  width: 250px;
+  border-radius: 15px;
+  box-shadow: 6px 7px 5px 0px rgba(0,0,0,0.75);
+  background: RGBA(191, 236, 248, 1);
+}
+
+#city-details-content {
+  margin: 30px;
+  padding: 20px;
+  height: 250px;
+  width: 70%;
+  border-radius: 15px;
+  box-shadow: 6px 7px 5px 0px rgba(0,0,0,0.75);
+  background: RGBA(191, 236, 248, 1);
+}
+
+#open-housing {
+  padding-top: .5em;
+  padding-left: 40px;
+  font-size: 70px;
+}
+
+#population {
+  padding-top: .5em;
+  padding-left: 10%;
+  font-size: 40px;
+}
+
+#footer {
+  height: 100px;
+  background-color: RGBA(126, 119, 119, .7);
+}
+
+/*footer*/
+#census-ref {
+  margin-top: 20px;
+  font-size: 20px;
+  color: white;
+  a: red;
+}
+
+
+/*navbar*/
+
+#logo {
+  font-size: 20px;
+}
+
+
+
+
+
+
+
+

@@ -1,1 +1,139 @@
-<h2>test</h2>
+<body id="city-show-page">
+    <div class="row" id="city-title">
+      <div class="col-lg-6 col-lg-offset-6">
+       <h1><%= @city.name %></h1>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="col-lg-4" id="city-details">
+        <h3>Occupied Housing</h3>
+        <h1 id="open-housing"><%= @city.open_housing %>%</h1>
+      </div>
+      <div class="col-lg-6" id="city-details-content">
+        <p><br>Focusing on housing
+          characteristics is a
+          basic way to understand
+          housing markets and changes in
+          housing throughout the nation.
+          Since Census 2000, the housing
+          industry has been impacted by
+          various events and conditions that
+          have resulted in noticeable shifts
+          in housing characteristics within
+          many parts of the nation.
+          As a result, housing markets in areas across
+          the nation shifted to reflect these changing
+          conditions in the latter half of the
+          decade.<br><br>
+             According to the 2010 Census,
+          there were 131.7 million housing
+          units in the United States. Of these
+          housing units, 116.7 million had
+          people living in them (88.6 percent)
+          on Census Day. The remaining 15.0
+          million units (11.4 percent) were
+          vacant. Between 2000 and 2010,
+          the national housing inventory
+          increased by 15.8 million units or
+          13.6 percent.
+        </p>
+      </div>
+      <div class="col-lg-4" id="city-details">
+        <h3>Metropolitan Statistical Area Population (MSA)</h3>
+        <h1 id="population"><%= number_with_delimiter(@city.size)%></h1>
+      </div>
+      <div class="col-lg-6" id="city-details-content">
+        <p><br>
+          Metropolitan and micropolitan statistical areas (metro and micro areas) are geographic entities delineated by the Office of Management and Budget (OMB) for use by Federal statistical agencies in collecting, tabulating, and publishing Federal statistics. The term "Core Based Statistical Area" (CBSA) is a collective term for both metro and micro areas. <br><br>
+          A metro area contains a core urban area of 50,000 or more population, and a micro area contains an urban core of at least 10,000 (but less than 50,000) population. Each metro or micro area consists of one or more counties and includes the counties containing the core urban area, as well as any adjacent counties that have a high degree of social and economic integration (as measured by commuting to work) with the urban core.
+        </p>
+      </div>
+      <div class="col-lg-4" id="city-details">
+        <h3>Average Price for Owner Occupied Housing Units</h3>
+        <h1 id="housing_cost"><%= number_to_currency(@city.housing_cost)%></h1>
+      </div>
+      <div class="col-lg-6" id="city-details-content">
+        <p><br>
+          Median home values adjusted for inflation nearly quadrupled over the 60-year period since the first housing census in 1940.  The median value of single-family homes in the United States rose from $30,600 in 1940 to $119,600 in 2000, after adjusting for inflation (see graph).  Median home value increased in each decade of this 60-year period, rising fastest (43 percent) in the 1970s and slowest (8.2 percent) in the 1980s. These values refer to owner-occupied single-family housing units on less than 10 acres without a business or medical office on the property. <br><br>
+          Among states, the District of Columbia had the highest median home value from 1940 to 1950. Over this 60-year period, the lowest median home values were generally found in southern states, such as Arkansas, Mississippi, and Oklahoma.  However, these states were joined by a couple of western states in earlier decades and Midwestern states in later decades.  For example: New Mexico, Arkansas, Mississippi, Oklahoma, and Arizona had the lowest median home values in 1940.  In 2000, the southern states remained at the bottom, but were joined by North Dakota and South Dakota, in the Midwest.
+        </p>
+      </div>
+      <div class="col-lg-4" id="city-details">
+        <h3>Percentage of Unemployed Persons by MSA</h3>
+        <h1 id="housing_cost"><%= number_to_percentage(@city.unemployment.to_f.round(2) * 100)%></h1>
+      </div>
+      <div class="col-lg-6" id="city-details-content">
+        <p><br>
+          All civilians 16 years old and over are classified as unemployed if they (1) were neither “at work” nor “with a job but not at work” during the reference week, and (2) were actively looking for work during the last 4 weeks, and (3) were available to start a job. Also included as unemployed are civilians who did not work at all during the reference week, were waiting to be called back to a job from which they had been laid off, and were available for work except for temporary illness. Examples of job seeking activities are:<br><br>
+          <ul>
+            <li>- Registering at a public or private employment office</li>
+            <li>- Meeting with prospective employers</li>
+            <li>- Investigating possibilities for starting a professional practice or opening a business</li>
+            <li>- Being on a union or professional register</li>
+          </ul>
+        </p>
+      </div>
+      <div class="col-lg-4" id="city-details">
+        <h3>Average Income by Household</h3>
+        <h1 id="housing_cost"><%= number_to_currency(@city.income_by_household) %></h1>
+      </div>
+      <div class="col-lg-6" id="city-details-content">
+        <p><br>
+          For most groups, the 2014 income
+          estimates were not statistically
+          different from 2013 estimates.
+          There were a few exceptions.
+          Real median household income
+          increased for households maintained
+          by a foreign-born householder.<br><br>
+          Income declined for
+          non-Hispanic White households, households
+          maintained by a native-born householder,
+          households in the West and those inside principal
+          cities of metropolitan statistical areas.
+          The 2014 poverty rate increased for two
+          groups: people aged 25 and older with at
+          least a bachelor’s degree and married-couple
+          families.
+        </p>
+      </div>
+      <div class="col-lg-4" id="city-details">
+        <h3>Average Weekly Hours Worked by Employees</h3>
+        <h1 id="housing_cost"><%= @city.weekly_hours_worked %> hours</h1>
+      </div>
+      <div class="col-lg-6" id="city-details-content">
+        <p><br>
+          Since the onset of the recession in
+            December of 2007, work hours have
+            trended downward because of increasing
+            involuntary part-time work and a reduction
+            in overtime hours.1 These trends
+            vary by metropolitan statistical area
+            (metro area) and by type of employment.2
+            This report will show where work-hour
+            cuts have been most prevalent. It highlights
+            changes in usual hours worked per
+            week by sex, occupation, industry, and
+            class of worker.<br><br>
+            While work hours typically vary little from
+            year to year, they tend to decline during
+            periods of recession. They can also be a
+            leading indicator of changes in employment,
+            because employers may increase or
+            decrease work hours for current employees
+            prior to layoff s or hiring.3 An increase
+            in part-time work and a reduction in
+            usual work hours are some of the indicators
+            of underemployment, and as such,
+            are important measures of the overall
+            employment situation.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div id="footer">
+      <div class="container">
+      <p id="census-ref"class="col-lg-offset-3">information about census data provided by <a href="http://www.census.gov/"/>The United States Census Bureau</p>
+      </div>
+  </div>
+</body>
