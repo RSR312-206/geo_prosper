@@ -123,6 +123,42 @@ $(function() {
 
   var userList = new List('industries-list', list_options);
 
+  //housing cost
+  var housing_cost = {
+        labels: xaxis,
+        datasets: [
+            {
+                label: "",
+                type: "line",
+                fillColor: "RGBA(125, 37, 51, 1)",
+                strokeColor: "RGBA(125, 37, 51, 1)",
+                pointColor: "rgba(220,220,220,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(220,220,220,1)",
+                data: housing_cost_data
+            },
+            {
+               label: "National Average",
+               type: "line",
+               fillColor: "rgba(151,187,205,0.5)",
+               strokeColor: "rgba(151,187,205,0.8)",
+               highlightFill: "rgba(151,187,205,0.75)",
+               highlightStroke: "rgba(151,187,205,1)",
+               data: [173900,173900,173900,173900,173900,173900]
+            }
+        ]
+    };
+
+  var new_housing_cost = new
+
+  Chart($("#housing_cost").get(0).getContext("2d")).Overlay(housing_cost, {
+    scaleLabel:
+      function(label){return  '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") },
+       scaleFontSize: 10,
+       scaleBeginAtZero : false
+  });
+
 });
 
 

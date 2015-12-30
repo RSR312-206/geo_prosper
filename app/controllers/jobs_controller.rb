@@ -21,7 +21,7 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     @cities_jobs_wages = CitiesJobsWages.where(job_id: @job.id).all
     @industries = CitiesIndustries.where(industry_id: @job.industry_id).joins(:city).all
-    @cities = City.where(rank: 1..10)
+    @cities = City.where(rank: 1..10).order(:rank)
   end
 
   private

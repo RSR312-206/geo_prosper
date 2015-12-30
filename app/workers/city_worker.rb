@@ -10,7 +10,7 @@ class CityWorker
 
     table_id1 = "B25008" #total, owner, and rental occupied housing in the location
     table_id2 = "B25002" # housing Occupancy Status
-    table_id3 =  "B25075" #Owner-occupied Housing Units. total, cost breakout.
+    table_id3 =  "B25077" #Owner-occupied Housing Units median value.
     table_id4 = "B23025" #total unemployed, employed persons by city
     table_id5 = "B19113" #median salary by household
     table_id6 = "B23020" #Mean Usual Hours Worked in the Past 12 Months for Workers 16 to 64 Years by Gender
@@ -31,7 +31,7 @@ class CityWorker
     open_housing = (occupied / total_housing) * 100
 
     #owner-occupied housing stats
-    housing_cost =  api_path["B25075"]["estimate"]["B25075001"]
+    housing_cost =  api_path["B25077"]["estimate"]["B25077001"]
 
     #unemplyed/employed persons by city
     total_workers = api_path["B23025"]["estimate"]["B23025002"]
