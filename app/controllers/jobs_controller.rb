@@ -27,7 +27,7 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:student_loan_pmt, :college, :job_title, :industry_id, :avg_salary)
+    params.require(:job).permit(:student_loan_pmt, :job_title, :industry_id, :avg_salary)
   end
 
 end

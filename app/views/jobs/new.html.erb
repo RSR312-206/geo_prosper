@@ -11,10 +11,6 @@
               <%= f.label "What industry are you in?", class: "col-lg-3 control-label" %>
               <%= collection_select(:job, :industry_id, Industry.all, :id, :classification, {prompt: "Please select"}, {:class=> "col-lg-8" }) %><br>
             </div>
-            <div class= "col-lg-10 form-group row" id="industry">
-              <%= f.label "Fill in your College or University", class: "col-lg-3 control-label"%>
-              <%= f.text_field :college, :class => "col-lg-6" %>
-            </div>
             <div class="col-lg-10 form-group row" id="industry">
               <%= f.label "Monthly Student Loan Debt Amount", class: "col-lg-3 control-label" %>
               <%=  f.number_field :student_loan_pmt, :class => "col-lg-2" %>
