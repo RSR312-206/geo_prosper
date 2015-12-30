@@ -21,6 +21,7 @@
             </tbody>
           </table>
         </div>
+        <%= @job.student_loan_pmt * 12 %>
         <div id="charts-main" class="span10">
               <script type="text/javascript">
                 var xaxis = []
@@ -29,7 +30,9 @@
                 var unemployment_data = []
                 var hours_worked_data = []
                 var housing_cost_data = []
+                var student_loan_pmt = []
                 "<% @cities_jobs_wages.each do |job| %>"
+                  student_loan_pmt.push("<%= (job.wage * 40 * 54) - (@job.student_loan_pmt * 12) %>")
                   xaxis.push("<%= job.city.name %>")
                   salary_yaxis.push("<%= job.wage * 40 * 54 %>")
                   open_housing_yaxis.push("<%= job.city.open_housing %>")
@@ -41,6 +44,7 @@
              <!--  salary -->
           <div class="col-lg-6 col-lg-offset-1">
             <canvas id="salary_chart"></canvas>
+            <div id="salary-legend" class="chart-legend"></div>
           </div>
           <div class="col-lg-3 col-lg-offset3" id="salary-content">
             <p>This primary chart shows salary comparison for your job title across all cities in which your industry was represented as one of the top 20 industreis in the area. The data comes from the Q3 salary survey by the Bureau of Labor Statistics</p>
