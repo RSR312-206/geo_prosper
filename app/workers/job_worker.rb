@@ -4,10 +4,12 @@ class JobWorker
 
   def perform(industry_id, job_id)
     job = Job.find(job_id)
-    bls_component = BlsComponent.where(title: job.job_title).first
-    title_id = bls_component.title_id
 
     bls_city_codes = CitiesIndustries.where(industry_id: industry_id).joins(:city).pluck('cities.bls_city_code')
+
+
+    bls_component = BlsComponent.where(title: job.job_title).first
+    title_id = bls_component.title_id
 
     series_ids = bls_city_codes.map do |bls_city_code|
       "OEUM#{bls_city_code}000000#{title_id}03"
