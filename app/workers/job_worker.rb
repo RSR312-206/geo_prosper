@@ -31,12 +31,17 @@ class JobWorker
 
     series = data['Results']['series']
     message = data["message"]
-    error_message = "There was no salary data available for this job."
+
 
     no_data_error = series.all? {|s| s['data'].empty? }
 
+    no_data_message = "There was no salary data available for this job."
+    error_message = "This request can't be processed right now, please try again shortly."
+
     if no_data_error === true
-      job.update_attributes(message: error_message)
+      job.update_attributes(message: no_data_message)
+    elsif data['Results'] === {}
+      job.update_attributes(messge: error_message)
     else
       series.each do |s|
         if s['data'].empty?

@@ -9,8 +9,7 @@ class JobsController < ApplicationController
       job_id = @job.id
       industry_id = @job.industry_id
       AnalyzeSurvey.new(industry_id, job_id).run
-
-      redirect_to job_path(@job)
+      redirect_to job_load_path(@job)
     else
       flash.now[:alert] = "Please fill out all the data in the survey."
       render :new
@@ -27,11 +26,26 @@ class JobsController < ApplicationController
     @cities = City.where(rank: 1..10).order(:rank)
   end
 
+  def ready
+    @job = Job.find(params[:id])
+    @cities_jobs_wages = CitiesJobsWages.where(job_id: @job.id).first
+
+    if @cities_jobs_wages.try(:wage).present? && @job.message.blank?
+      render json: {ready: true}
+    else
+      flash.now[:error] = "There was no data for this job. Please try another."
+      render json: {ready: false}
+    end
+  end
+
+  def load
+    @job = Job.find(params[:id])
+  end
+
   private
 
   def job_params
     params.require(:job).permit(:student_loan_pmt, :job_title, :industry_id, :avg_salary, :message)
   end
-
 end
 

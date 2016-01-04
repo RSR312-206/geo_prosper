@@ -1,0 +1,15 @@
+<body>
+<h2>Please wait while your results are being loaded</h2>
+  <div class="progress" id="progress-bar">
+    <div class="progress-bar" style="width: 60%;"></div>
+  </div>
+  <script type="text/javascript">
+  setInterval(function() {
+    $.get('/jobs/<%=@job.id%>/ready', function(data) {
+      if (data.ready) {
+        window.location = '/jobs/<%=@job.id%>'
+      }
+    })
+  }, 1000);
+  </script>
+</body>
