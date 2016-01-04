@@ -14,7 +14,6 @@ class AnalyzeSurvey
       c.rank = 0
     end
 
-
     cities_jobs_wages = CitiesJobsWages.where(job_id: @job_id).joins(:city).all
     city_ids = cities_jobs_wages.map {|city_id| city_id.city_id }
     wages = cities_jobs_wages.sort_by {|wage| wage.wage }.reverse!

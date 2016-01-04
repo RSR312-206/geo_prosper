@@ -12,13 +12,16 @@ class JobsController < ApplicationController
 
       redirect_to job_path(@job)
     else
-      flash[:alert] = "Please fill out all the data in the survey."
+      flash.now[:alert] = "Please fill out all the data in the survey."
       render :new
     end
   end
 
   def show
     @job = Job.find(params[:id])
+      if @job.message != nil
+        flash.now[:error] = "There was no data for this job. Please try another."
+      end
     @cities_jobs_wages = CitiesJobsWages.where(job_id: @job.id).all
     @industries = CitiesIndustries.where(industry_id: @job.industry_id).joins(:city).all
     @cities = City.where(rank: 1..10).order(:rank)
@@ -27,7 +30,7 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:student_loan_pmt, :job_title, :industry_id, :avg_salary)
+    params.require(:job).permit(:student_loan_pmt, :job_title, :industry_id, :avg_salary, :message)
   end
 
 end

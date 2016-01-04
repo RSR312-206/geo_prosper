@@ -1,5 +1,16 @@
 
 <body id="city-ranking-pic">
+<meta http-equiv="refresh" content="1; URL=http://localhost:3000/jobs/<%=@job.id%>" >
+<script type="text/javascript">
+  var timer;
+  function endAndStartTimer() {
+    window.clearTimeout(timer);
+    timer = window.setTimeout(function(){
+    window.location.reload(1);
+    },10000);
+  }
+</script>
+
   <div class="containter-fluid">
     <div class="row-fluid">
       <div class="col-sm-2 no-float">

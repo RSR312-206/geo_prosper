@@ -1,6 +1,6 @@
 class JobWorker
   include Sidekiq::Worker
-  sidekiq_options retry: true, retry_count: 2
+  sidekiq_options retry: true, retry_count: 3
 
   def perform(industry_id, job_id)
     job = Job.find(job_id)
@@ -31,26 +31,35 @@ class JobWorker
 
     series = data['Results']['series']
     message = data["message"]
-    series.each do |s|
-      if s['data'].empty?
-        Rails.logger.warn "CitiesIndustries not created!"
-        next
-      end
+    error_message = "There was no salary data available for this job."
 
-      wage = s["data"][0]["value"]
-      series_id = s["seriesID"]
-      puts "the job salary is: #{wage} and the seriesID is #{series_id}"
+    no_data_error = series.all? {|s| s['data'].empty? }
 
-      bls_city_code = series_id[4..10]
+    if no_data_error === true
+      job.update_attributes(message: error_message)
+    else
+      series.each do |s|
+        if s['data'].empty?
+          Rails.logger.warn "CitiesIndustries not created!"
+          next
+        end
 
-      city_id = City.where(bls_city_code: bls_city_code).first.id
+        wage = s["data"][0]["value"]
 
-      cities_jobs_wages = CitiesJobsWages.create(wage: wage, city_id: city_id, job_id: job.id)
+        series_id = s["seriesID"]
+        puts "the job salary is: #{wage} and the seriesID is #{series_id}"
 
-      CityWorker.perform_async(city_id)
+        bls_city_code = series_id[4..10]
 
-      if cities_jobs_wages.persisted?
-        Rails.logger.info "CitiesJobsWages created! #{cities_jobs_wages.id}"
+        city_id = City.where(bls_city_code: bls_city_code).first.id
+
+        cities_jobs_wages = CitiesJobsWages.create(wage: wage, city_id: city_id, job_id: job.id)
+
+        CityWorker.perform_async(city_id)
+
+        if cities_jobs_wages.persisted?
+          Rails.logger.info "CitiesJobsWages created! #{cities_jobs_wages.id}"
+        end
       end
     end
   end
