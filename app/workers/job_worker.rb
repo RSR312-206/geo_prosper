@@ -60,7 +60,7 @@ class JobWorker
 
         cities_jobs_wages = CitiesJobsWages.create(wage: wage, city_id: city_id, job_id: job.id)
 
-        CityWorker.perform_async(city_id)
+        CityWorker.perform_async(city_id, industry_id, job_id)
 
         if cities_jobs_wages.persisted?
           Rails.logger.info "CitiesJobsWages created! #{cities_jobs_wages.id}"

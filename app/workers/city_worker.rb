@@ -2,12 +2,13 @@ class CityWorker
   include Sidekiq::Worker
   sidekiq_options retry: false
 
-  def perform(city_id)
+  def perform(city_id, industry_id, job_id)
 
     city = City.find(city_id)
 
     if city.size && city.open_housing && city.housing_cost && city.unemployment && city.income_by_household && city.weekly_hours_worked != nil
       city
+      AnalyzeSurvey.new(industry_id, job_id).run
     else
       api_call = "http://api.censusreporter.org/1.0/data/show/latest?"
 

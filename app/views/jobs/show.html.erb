@@ -6,14 +6,12 @@
         <table id="ranking-table">
           <thead>
             <tr>
-              <th><b>Ranking</th>
-              <th><b>City</th>
+              <th><b>Top Suggested Cities</th>
             </tr>
           </thead>
           <tbody>
             <% @cities.each do |city| %>
               <tr>
-                <td id="td"><%= city.rank %></td>
                 <td id="td"><%= link_to city.name, city_path(city) %></td>
               </tr>
             <% end %>

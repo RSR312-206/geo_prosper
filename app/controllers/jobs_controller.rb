@@ -8,7 +8,7 @@ class JobsController < ApplicationController
     if @job.save
       job_id = @job.id
       industry_id = @job.industry_id
-      AnalyzeSurvey.new(industry_id, job_id).run
+      JobWorker.perform_async(industry_id, job_id)
       redirect_to job_load_path(@job)
     else
       flash.now[:alert] = "Please fill out all the data in the survey."
