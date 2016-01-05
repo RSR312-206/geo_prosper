@@ -1,6 +1,6 @@
 class JobWorker
   include Sidekiq::Worker
-  sidekiq_options retry: true, retry_count: 3
+  sidekiq_options retry: true, retry_count: 2
 
   def perform(industry_id, job_id)
     job = Job.find(job_id)
@@ -32,11 +32,11 @@ class JobWorker
     series = data['Results']['series']
     message = data["message"]
 
-
+    #test the api for errors in salary data for each call that was made in the batch.
     no_data_error = series.all? {|s| s['data'].empty? }
 
-    no_data_message = "There was no salary data available for this job."
-    error_message = "This request can't be processed right now, please try again shortly."
+    no_data_message = "There was no salary data available for this job title."
+    error_message = "This request can't be processed right now."
 
     if no_data_error === true
       job.update_attributes(message: no_data_message)

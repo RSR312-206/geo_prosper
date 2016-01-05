@@ -19,7 +19,7 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
       if @job.message != nil
-        flash.now[:error] = "There was no data for this job. Please try another."
+        flash.now[:error] = "Unfortunately, there was no data for this job. Please try another!"
       end
     @cities_jobs_wages = CitiesJobsWages.where(job_id: @job.id).all
     @industries = CitiesIndustries.where(industry_id: @job.industry_id).joins(:city).all
@@ -28,14 +28,12 @@ class JobsController < ApplicationController
 
   def ready
     @job = Job.find(params[:id])
-    @cities_jobs_wages = CitiesJobsWages.where(job_id: @job.id).first
 
-    if @cities_jobs_wages.try(:wage).present? && @job.message.blank?
-      render json: {ready: true}
-    else
-      flash.now[:error] = "There was no data for this job. Please try another."
-      render json: {ready: false}
-    end
+    if @job.industry_id.present?
+       render json: {ready: true}
+     else
+       render json: {ready: false}
+     end
   end
 
   def load
