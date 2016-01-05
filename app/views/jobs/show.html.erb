@@ -11,7 +11,7 @@
             </tr>
           </thead>
           <tbody>
-            <% @cities.sort_by do |city| %>
+            <% @cities.each do |city| %>
               <tr>
                 <td id="td"><%= city.rank %></td>
                 <td id="td"><%= link_to city.name, city_path(city) %></td>

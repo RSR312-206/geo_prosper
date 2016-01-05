@@ -9,8 +9,8 @@ class AnalyzeSurvey
     JobWorker.perform_async(@industry_id, @job_id)
 
     #reset city rank
-    cities = City.all
-    cities.each do |c|
+    city_rank_reset = City.all
+    city_rank_reset.each do |c|
       c.rank = 0
     end
 
