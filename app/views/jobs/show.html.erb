@@ -6,7 +6,7 @@
         <table id="ranking-table">
           <thead>
             <tr>
-              <th><b>Top Suggested Cities</th>
+              <th id="top-cities"><b><h2>Top Cities</h2></th>
             </tr>
           </thead>
           <tbody>
@@ -40,11 +40,17 @@
         <!--  salary -->
       <div class="col-lg-6 col-lg-offset-1"><canvas id="salary_chart"></canvas></div>
       <div class="col-lg-3 col-lg-offset3" id="salary-content">
-        <p>This primary chart shows salary comparison for your job title across all cities in which your industry was represented as one of the top 20 industreis in the area. The data comes from the Q3 salary survey by the Bureau of Labor Statistics</p>
+        <div id="background">
+          <h2 >Salary by City</h2>
+          <h4>This primary chart shows salary comparison for your job title across all cities in which your industry was represented as one of the top 10 industreis in the area. </h4>
+        </div>
       </div>
         <!-- occupied housing -->
       <div class="col-lg-3 col-lg-offset-1" id="salary-content">
-        <p> OCCUPIED HOUSING tristique, diam enim tristique ante, non scelerisque libero neque in turpis. Aenean vehicula tempus odio nec pellentesque. Donec nunc eros, laoreet vitae tincidunt sed, aliquam vel nunc.</p>
+        <div id="background">
+          <h2>Occupied Housing By City</h2>
+          <h4> The percentage of open housing by city</h4>
+        </div>
       </div>
       <div class="col-lg-5 col-lg-offset-4">
         <canvas id="open_housing"></canvas>
@@ -54,11 +60,17 @@
         <canvas id="unemployment"></canvas>
       </div>
       <div class="col-lg-3 col-lg-offset-1" id="salary-content">
-        <p> UNEMPLOYMENT tristique, diam enim tristique ante, non scelerisque libero neque in turpis. Aenean vehicula tempus odio nec pellentesque. Donec nunc eros, laoreet vitae tincidunt sed, aliquam vel nunc.</p>
+        <div id="background">
+          <h2>Unemployment Rate By City</h2>
+          <h4> h4ercentage of unemployed adults compared to the national average by city.</h4>
+        </div>
       </div>
      <!--  hours worked -->
       <div class="col-lg-3 col-lg-offset-2" id="salary-content">
-        <p> HOURS WORKED tristique, diam enim tristique ante, non scelerisque libero neque in turpis. Aenean vehicula tempus odio nec pellentesque. Donec nunc eros, laoreet vitae tincidunt sed, aliquam vel nunc.</p>
+        <div id="background">
+          <h2>Hours Worked By Average Person By City</h2>
+          <h4> Average Weekly hours worked by individuals.</h4>
+        </div>
       </div>
       <div class="col-lg-5 col-lg-offset-6">
         <canvas id="hours-worked"></canvas>
@@ -68,7 +80,10 @@
         <canvas id="housing_cost"></canvas>
       </div>
       <div class="col-lg-3 col-lg-offset-1" id="salary-content">
-        <p> HOUSING COST tristique, diam enim tristique ante, non scelerisque libero neque in turpis. Aenean vehicula tempus odio nec pellentesque. Donec nunc eros, laoreet vitae tincidunt sed, aliquam vel nunc.</p>
+        <div id="background">
+          <h2>Housing Costs by City</h2>
+          <h4> Average Housing cost by City comh4ared to the national average.</h4>
+        </div>
       </div>
     </div>
   </div>
