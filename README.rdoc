@@ -1,28 +1,17 @@
-== README
+Geo-Prosper
+------------
+A simple surey which provides data-driven results on the best cities to live in based on your job title, industry, and statistics about the major Metropolitan Areas of the US. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Data on cities and salaries were taken from the Census.gov and the Bureau of Labor Statistics public API. 
+The application then visualizes the results of a custom algorithm to display to the user the most ideal cities to live in. 
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+The Stack:
+
+* Rails, Postgres, Sidekiq, Redis, Bootstrap, Chart.js
+
+
+Future Goals:
+
+* Right now, the ranking algorithm is pre-determined based on what I thought were the most important factors for a suitable living environtment- like cost of living, unemployment, open housing, housing costs and average hours worked by individual. But I'd like to build a more interactive UX where the user can determine which statistics matter most to them. The results would update accordingly.
+* I'd also like to add React on the front end and a more developed graphing library. 
