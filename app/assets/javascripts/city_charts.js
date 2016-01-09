@@ -35,7 +35,7 @@ $(function() {
   new Chart(salary_chart).Overlay(s_data, {
      scaleLabel:
       function(label){return  '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") },
-     scaleFontSize: 10,
+     scaleFontSize: 12,
      scaleBeginAtZero : false
   })
 
@@ -68,7 +68,7 @@ $(function() {
 
   var new_open_housing = new
 
-  Chart($("#open_housing").get(0).getContext("2d")).Overlay(open_housing_data, {scaleLabel: "<%=value + '%' %>", scaleFontSize: 10, scaleBeginAtZero : false });
+  Chart($("#open_housing").get(0).getContext("2d")).Overlay(open_housing_data, {scaleLabel: "<%=value + '%' %>", scaleFontSize: 12, scaleBeginAtZero : false });
 
 //unemployment Polar Area chart
   var unemployment_chart = $("#unemployment").get(0).getContext("2d");
@@ -101,7 +101,7 @@ $(function() {
   };
 
   new Chart(unemployment_chart).Overlay(unemployment, {
-    pointDot: true, scaleLabel: "<%=value + '%' %>", scaleFontSize: 10 });
+    pointDot: true, scaleLabel: "<%=value + '%' %>", scaleFontSize: 12 });
 
 // hours worked by city
   var hours_worked_chart = $("#hours-worked").get(0).getContext("2d");
@@ -123,7 +123,7 @@ $(function() {
     ]
 };
 
-  new Chart(hours_worked_chart).Line(hours_data, {scaleFontSize: 10 });
+  new Chart(hours_worked_chart).Line(hours_data, {scaleFontSize: 12 });
 
 //industry list
 
@@ -165,7 +165,7 @@ $(function() {
   Chart($("#housing_cost").get(0).getContext("2d")).Overlay(housing_cost, {
     scaleLabel:
       function(label){return  '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") },
-       scaleFontSize: 10,
+       scaleFontSize: 12,
        scaleBeginAtZero : false
   });
 

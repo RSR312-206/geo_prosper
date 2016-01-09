@@ -8,7 +8,6 @@ class CityWorker
 
     if city.size && city.open_housing && city.housing_cost && city.unemployment && city.income_by_household && city.weekly_hours_worked != nil
       city
-      AnalyzeSurvey.new(industry_id, job_id).run
     else
       api_call = "http://api.censusreporter.org/1.0/data/show/latest?"
 
@@ -53,6 +52,7 @@ class CityWorker
       male_hours_worked = api_path["B23020"]["estimate"]["B23020002"]
       city.update_attributes(open_housing: open_housing, housing_cost: housing_cost, unemployment: unemployment, income_by_household: income_by_household, weekly_hours_worked: weekly_hours_worked)
     end
+    AnalyzeSurvey.new(industry_id, job_id).run
   end
 end
 

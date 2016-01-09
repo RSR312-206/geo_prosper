@@ -21,15 +21,19 @@ class JobsController < ApplicationController
       if @job.message != nil
         flash.now[:error] = "Unfortunately, there was no data for this job. Please try another!"
       end
-    @cities_jobs_wages = CitiesJobsWages.where(job_id: @job.id).all
+    @cities = City.order(rank: :asc).limit(15)
+    @cities_jobs_wages = CitiesJobsWages.where(job_id: @job.id, city_id: @cities).all
     @industries = CitiesIndustries.where(industry_id: @job.industry_id).joins(:city).all
-    @cities = City.where(rank: 1..10).order(:rank)
+
   end
 
   def ready
     @job = Job.find(params[:id])
-    @cities_jobs_wages = CitiesJobsWages.joins(:city).joins(:job).where(job_id: @job.id).last
-    if @cities_jobs_wages.city.rank.present? || @cities_jobs_wages.job.message.present?
+    if @job.message.present?
+      render json: {ready: true}
+    elsif
+      @cities_jobs_wages = CitiesJobsWages.joins(:city).where(job_id: @job.id).last
+      @cities_jobs_wages.city.rank.present?
        render json: {ready: true}
      else
        render json: {ready: false}

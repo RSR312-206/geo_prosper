@@ -58,7 +58,7 @@ class AnalyzeSurvey
       weight_3 = housing_cost_rank.to_i + open_housing_rank.to_i
       weight_2 = unemployment_rank.to_i + hours_worked_rank.to_i
       rank = ((50 * weight_5) + (30 * weight_3) + (20 * weight_2 )) / 100
-
+      p rank
       city = City.find(id)
       city.update_attributes( rank: rank )
     end
