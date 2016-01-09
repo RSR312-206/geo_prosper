@@ -28,8 +28,8 @@ class JobsController < ApplicationController
 
   def ready
     @job = Job.find(params[:id])
-
-    if @job.industry_id.present?
+    @cities_jobs_wages = CitiesJobsWages.joins(:city).joins(:job).where(job_id: @job.id).last
+    if @cities_jobs_wages.city.rank.present? || @cities_jobs_wages.job.message.present?
        render json: {ready: true}
      else
        render json: {ready: false}

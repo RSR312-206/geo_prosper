@@ -7,7 +7,6 @@ class AnalyzeSurvey
   def run
 
     cities_jobs_wages = CitiesJobsWages.where(job_id: @job_id).joins(:city).all
-    p cities_jobs_wages
     city_ids = cities_jobs_wages.map {|city_id| city_id.city_id }
     wages = cities_jobs_wages.sort_by {|wage| wage.wage }.reverse!
 
