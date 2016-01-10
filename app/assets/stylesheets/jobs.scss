@@ -172,7 +172,7 @@ canvas {
 }
 
 #city-show-page {
-  background: RGBA(81, 152, 203, 1);
+  background-color: RGBA(55, 131, 187, 1);
 }
 
 #city-details {
@@ -236,7 +236,19 @@ canvas {
   background: RGBA(151, 151, 151, .5)
 }
 
-
+/* about me page */
+#legend-about-page li {
+  text-align: center;
+  float: left;
+  margin-right: 10px;
+}
+#legend-about-page span {
+  border: 1px solid #ccc;
+  float: left;
+  width: 18px;
+  height: 18px;
+  margin: 2px;
+}
 
 
 
