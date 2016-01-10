@@ -1,5 +1,14 @@
 $(function() {
 
+//function to match the national data in the charts to the length of the x axis data
+function fillArray(value, len) {
+  var data = [];
+  for (var i = 0; i < len; i++) {
+    data.push(value);
+  }
+  return data;
+}
+
 //salary chart
   var salary_chart = $("#salary_chart").get(0).getContext("2d");
   var new_salary_chart = new Chart(salary_chart);
@@ -31,7 +40,8 @@ $(function() {
             }
         ]
     };
-  var overlayChart = new Chart(salary_chart).Overlay(s_data, {
+  var overlayChart = new
+  Chart(salary_chart).Overlay(s_data, {
      scaleFontSize: 0,
      scaleShowLabels: false,
      scaleBeginAtZero: false,
@@ -42,11 +52,12 @@ $(function() {
 
 
 //open housing
+
   var open_housing_data = {
         labels: xaxis,
         datasets: [
             {
-                label: "",
+                label: "Open Housing by City",
                 type: "bar",
                 fillColor: "RGBA(125, 37, 51, 1)",
                 strokeColor: "RGBA(125, 37, 51, 1)",
@@ -63,14 +74,22 @@ $(function() {
                strokeColor: "rgba(151,187,205,0.8)",
                highlightFill: "rgba(151,187,205,0.75)",
                highlightStroke: "rgba(151,187,205,1)",
-               data: [88,88,88,88,88,88]
+               data: fillArray(88, xaxis.length)
             }
         ]
     };
 
   var new_open_housing = new
 
-  Chart($("#open_housing").get(0).getContext("2d")).Overlay(open_housing_data, {scaleLabel: "<%=value + '%' %>", scaleFontSize: 12, scaleBeginAtZero : false });
+  Chart($("#open_housing").get(0).getContext("2d")).Overlay(open_housing_data,
+    {
+      scaleShowLabel: false,
+      scaleFontSize: 0,
+      scaleBeginAtZero: false,
+      multiTooltipTemplate : function (label) {
+      return label.datasetLabel + ': ' + label.value.toString() + '%';
+      }
+    });
 
 //unemployment Polar Area chart
   var unemployment_chart = $("#unemployment").get(0).getContext("2d");
@@ -97,7 +116,7 @@ $(function() {
            strokeColor: "rgba(151,187,205,0.8)",
            highlightFill: "rgba(151,187,205,0.75)",
            highlightStroke: "rgba(151,187,205,1)",
-           data: [7.2, 7.2, 7.2, 7.2, 7.2, 7.2 ]
+           data: fillArray(7.2, xaxis.length)
         }
     ]
   };
@@ -157,7 +176,7 @@ $(function() {
                strokeColor: "rgba(151,187,205,0.8)",
                highlightFill: "rgba(151,187,205,0.75)",
                highlightStroke: "rgba(151,187,205,1)",
-               data: [173900,173900,173900,173900,173900,173900]
+               data: fillArray(173900, xaxis.length)
             }
         ]
     };

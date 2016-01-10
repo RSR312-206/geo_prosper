@@ -42,29 +42,23 @@
             "<% end %>"
           </script>
         <!--  salary -->
-      <div class="col-sm-9"><canvas id="salary_chart"></canvas>
+      <div class="col-sm-9">
+        <canvas id="salary_chart"></canvas>
         <div id="legend"class="col-sm-3">
-          <ul class="legend">
+          <ul>
             <li><span id="salary"></span>Salary Based On City</li>
             <li><span id="minus-debt"></span> Salary minus monthly debt * 12</li>
           </ul>
         </div>
       </div>
-      <!-- <div class="col-sm-1" id="salary-content">
-        <div id="background">
-          <h2 >Salary by City</h2>
-          <h4>This primary chart shows salary comparison for your job title across all cities in which your industry was represented as one of the top 10 industreis in the area. </h4>
-        </div>
-      </div> -->
-        <!-- occupied housing -->
-      <div class="col-sm-3 col-sm-offset-1" id="salary-content">
-        <div id="background">
-          <h2>Occupied Housing By City</h2>
-          <h4> The percentage of open housing by city</h4>
-        </div>
-      </div>
-      <div class="col-sm-5 col-sm-offset-4">
+      <!-- open housing -->
+      <div class="col-sm-9">
         <canvas id="open_housing"></canvas>
+        <div id="legend"class="col-sm-3">
+          <ul>
+            <li><span id="open-housing"></span>Percentage of Open Housing</li>
+          </ul>
+        </div>
       </div>
       <!-- unemployment -->
       <div class="row">
@@ -74,7 +68,7 @@
         <div class="col-sm-3 col-sm-offset-1" id="salary-content">
           <div id="background">
             <h2>Unemployment Rate By City</h2>
-            <h4> h4ercentage of unemployed adults compared to the national average by city.</h4>
+            <h4> ercentage of unemployed adults compared to the national average by city.</h4>
           </div>
         </div>
       </div>
