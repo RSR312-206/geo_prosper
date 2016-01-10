@@ -2,7 +2,7 @@
 <body id="city-ranking-pic">
   <div class="containter-fluid">
     <div class="row">
-      <div class="col-sm-2 no-float">
+      <div class="col-sm-3 no-float">
         <table id="ranking-table">
           <thead>
             <tr>
@@ -40,11 +40,11 @@
           housing_cost_data.push("<%= city.housing_cost %>")
         "<% end %>"
       </script>
-      <div id="charts-main" class="col-sm-10">
+      <div class="col-sm-9">
           <!--  salary -->
         <div class="col-sm-10">
           <canvas id="salary_chart"></canvas>
-          <div id="legend"class="col-sm-3">
+          <div id="legend"class="col-sm-4">
             <ul>
               <li><span id="salary"></span>Salary Based On City</li>
               <li><span id="minus-debt"></span> Salary minus monthly debt * 12</li>
@@ -55,9 +55,9 @@
         <div class="row">
           <div class="col-sm-10">
             <canvas id="open_housing"></canvas>
-            <div id="legend"class="col-sm-3">
+            <div id="legend"class="col-sm-4">
               <ul>
-                <li><span id="open-housing"></span>Percentage of Open Housing</li>
+                <li><span id="open-housing-legend"></span>Percentage of Open Housing</li>
               </ul>
             </div>
           </div>
@@ -66,9 +66,9 @@
         <div class="row">
           <div class="col-sm-10">
             <canvas id="unemployment"></canvas>
-            <div id="legend"class="col-sm-3">
+            <div id="legend"class="col-sm-4">
               <ul>
-                <li><span id="unemployment"></span>Percentage of Unemployed workers by city</li>
+                <li><span id="unemployment-legend"></span>Percentage of Unemployed workers by city</li>
               </ul>
             </div>
           </div>
@@ -77,12 +77,22 @@
         <div class="row">
           <div class="col-sm-10">
             <canvas id="hours-worked"></canvas>
+            <div id="legend"class="col-sm-4">
+              <ul>
+                <li><span id="hours-worked-legend"></span>Average Weekly Hours Wokrked buy city</li>
+              </ul>
+            </div>
           </div>
         </div>
           <!-- housing cost  -->
         <div class="row">
           <div class="col-sm-10">
             <canvas id="housing_cost"></canvas>
+            <div id="legend"class="col-sm-4">
+              <ul>
+                <li><span id="housing-cost-legend"></span>Median Cost of a home by City</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

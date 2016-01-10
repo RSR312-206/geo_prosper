@@ -10,7 +10,6 @@ City.create([
  { name: "Houston-Sugar Land-Baytown, TX", bls_city_code: '0026420', census_city_code: '4835000' },
  { name: "Miami-Fort Lauderdale-Pompano Beach, FL", bls_city_code: '0033100', census_city_code: '1245000' },
  { name: "Atlanta-Sandy Springs-Marietta, GA", bls_city_code: '0012060', census_city_code: '1304000' },
- { name: "Detroit-Warren-Livonia, MI", bls_city_code: '0019820', census_city_code: '2622000' },
  { name: "Seattle-Tacoma-Bellevue, WA", bls_city_code: '0042660', census_city_code: '5363000' },
  { name: "Minneapolis-St. Paul-Bloomington, MN-WI", bls_city_code: '0033460', census_city_code: '2743000' },
  { name: "Cleveland-Elyria-Mentor, OH", bls_city_code: '0017460', census_city_code: '2814260' },

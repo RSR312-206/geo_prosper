@@ -122,7 +122,13 @@ function fillArray(value, len) {
   };
 
   new Chart(unemployment_chart).Overlay(unemployment, {
-    pointDot: true, scaleLabel: "<%=value + '%' %>", scaleFontSize: 12 });
+    pointDot: true,
+    scaleShowLabel: false,
+    scaleFontSize: 0,
+    multiTooltipTemplate : function (label) {
+      return label.datasetLabel + ': ' + label.value.toString() + '%';
+    }
+  });
 
 // hours worked by city
   var hours_worked_chart = $("#hours-worked").get(0).getContext("2d");
@@ -132,7 +138,8 @@ function fillArray(value, len) {
     labels: xaxis,
     datasets: [
       {
-          label: "My First dataset",
+          label: "Average Hours Worked",
+          type: "line",
           fillColor: "RGBA(83, 132, 122, 1)",
           strokeColor: "rgba(220,220,220,1)",
           pointColor: "rgba(220,220,220,1)",
@@ -140,11 +147,29 @@ function fillArray(value, len) {
           pointHighlightFill: "#fff",
           pointHighlightStroke: "rgba(220,220,220,1)",
           data: hours_worked_data
+      },
+      {
+          label: "National Average",
+          type: "line",
+          fillColor: "RGBA(89, 89, 95, .5)",
+          strokeColor: "rgba(220,220,220,1)",
+          pointColor: "rgba(220,220,220,1)",
+          pointStrokeColor: "#fff",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(220,220,220,1)",
+          data: fillArray(38.6, xaxis.length)
       }
     ]
 };
 
-  new Chart(hours_worked_chart).Line(hours_data, {scaleFontSize: 12 });
+  new Chart(hours_worked_chart).Line(hours_data, {
+    scaleFontSize: 0,
+    scaleBeginAtZero: false,
+    scaleShowLabel: false,
+    multiTooltipTemplate : function (label) {
+      return label.datasetLabel + ': ' + label.value.toString() + ' hours';
+    }
+  });
 
 //industry list
 
@@ -160,19 +185,20 @@ function fillArray(value, len) {
         datasets: [
             {
                 label: "",
+
                 type: "line",
                 fillColor: "RGBA(250, 203, 112, 1)",
                 strokeColor: "RGBA(125, 37, 51, 1)",
                 pointColor: "rgba(220,220,220,1)",
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(220,220,220,1)",
+                pointHighlightStroke: "RGBA(245, 202, 120, 1)",
                 data: housing_cost_data
             },
             {
                label: "National Average",
                type: "line",
-               fillColor: "RGBA(89, 89, 95, )",
+               fillColor: "RGBA(89, 89, 95, .5)",
                strokeColor: "rgba(151,187,205,0.8)",
                highlightFill: "rgba(151,187,205,0.75)",
                highlightStroke: "rgba(151,187,205,1)",
@@ -184,10 +210,11 @@ function fillArray(value, len) {
   var new_housing_cost = new
 
   Chart($("#housing_cost").get(0).getContext("2d")).Overlay(housing_cost, {
-    scaleLabel:
-      function(label){return  '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") },
-       scaleFontSize: 12,
-       scaleBeginAtZero : false
+    scaleShowLabel: false,
+    scaleFontSize: 0,
+    multiTooltipTemplate : function (label) {
+      return label.datasetLabel + ': $' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
   });
 
 });

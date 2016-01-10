@@ -50,15 +50,24 @@ html,body,div,span,applet,object,iframe,a,abbr,acronym,address,big,cite,code,del
   background-color: RGBA(201, 177, 154, 1);
 }
 
-#legend #open-housing {
+#legend #open-housing-legend {
   background-color: RGBA(117, 49, 55, 1);
   margin: 5px;
   vertical-align: center;
 }
 
-#legend #unemployment {
+#legend #unemployment-legend {
   background-color: RGBA(78, 74, 72, 1);
 }
+
+#legend #hours-worked-legend {
+  background-color: RGBA(93, 129, 121, 1),
+}
+
+#legend #housing-cost-legend {
+  background-color: RGBA(245, 202, 120, 1);
+}
+
 
 /*background color and images*/
 #background-show-page {
@@ -66,29 +75,32 @@ html,body,div,span,applet,object,iframe,a,abbr,acronym,address,big,cite,code,del
   font-family:'Alegreya Sans', sans-serif;
 }
 
+
 #city-ranking-pic {
   background: url(https://pixabay.com/static/uploads/photo/2013/07/12/15/54/chicago-150543_960_720.png) no-repeat center center fixed;
   background-size: cover;
   height: 10%;
 }
 
-/*table css for show page*/
+
+/*top cities table css for show page*/
 #ranking-table {
   border-spacing: 10px;
   border-collapse: separate;
   background: RGBA(193, 193, 193, 1);
+  width: 90%;
   padding: 10px;
-  margin: 10px;
+  margin-right: 10px;
+  margin-left: 50px;
   border-radius: 15px;
   box-shadow: 3px 4px 2px 0px rgba(0,0,0,0.75);
-  width: 30%;
 }
 
-#top-cities {
-  text-align: center;
-}
+/* charts css */
 
-/*chart css */
+#charts-main {
+  margin-left: 5px;
+}
 canvas {
   background: RGBA(255, 255, 255, 1);
   height: 400px;
@@ -129,7 +141,7 @@ canvas {
 }
 
 
-/* industry table*/
+/*/* industry table*/
 .list {
   font-family: 'Alegreya Sans', sans-serif;
   height: 400px;
@@ -148,68 +160,6 @@ canvas {
   font-size: 16px;
   text-align:center;
   vertical-align:middle;
-}
-
-#input {
-  border:solid 1px #ccc;
-  border-radius: 5px;
-  padding:7px 14px;
-  margin-bottom:10px
-}
-#input:focus {
-  outline:none;
-  border-color:#aaa;
-}
-.sort {
-  padding:8px 30px;
-  border-radius: 6px;
-  border:none;
-  display:inline-block;
-  color:#fff;
-  text-decoration: none;
-  background-color: #28a8e0;
-  height:30px;
-}
-.sort:hover {
-  text-decoration: none;
-  background-color:#1b8aba;
-}
-.sort:focus {
-  outline:none;
-}
-.sort:after {
-  display:inline-block;
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 5px solid transparent;
-  content:"";
-  position: relative;
-  top:-10px;
-  right:-5px;
-}
-.sort.asc:after {
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid #fff;
-  content:"";
-  position: relative;
-  top:4px;
-  right:-5px;
-}
-.sort.desc:after {
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 5px solid #fff;
-  content:"";
-  position: relative;
-  top:-4px;
-  right:-5px;
 }
 
 /*city show page*/
@@ -257,10 +207,6 @@ canvas {
   font-size: 40px;
 }
 
-#footer {
-  height: 100px;
-  background-color: RGBA(126, 119, 119, .7);
-}
 
 /*footer*/
 #census-ref {
@@ -270,6 +216,10 @@ canvas {
   a: red;
 }
 
+#footer {
+  height: 100px;
+  background-color: RGBA(126, 119, 119, .7);
+}
 
 /*navbar*/
 

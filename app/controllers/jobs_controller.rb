@@ -19,7 +19,7 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
       if @job.message != nil
-        flash.now[:error] = "Unfortunately, there was no data for this job. Please try another!"
+        flash.now[:error] = "Unfortunately, there was no salary data for this job. Please try another!"
       end
     @cities = City.order(rank: :asc).limit(15)
     @cities_jobs_wages = CitiesJobsWages.where(job_id: @job.id, city_id: @cities).all
