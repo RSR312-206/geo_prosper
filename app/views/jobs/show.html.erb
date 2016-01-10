@@ -1,7 +1,7 @@
 
 <body id="city-ranking-pic">
   <div class="containter-fluid">
-    <div class="row-fluid">
+    <div class="row">
       <div class="col-sm-2 no-float">
         <table id="ranking-table">
           <thead>
@@ -20,80 +20,69 @@
           </tbody>
         </table>
       </div>
-      <div id="charts-main" class="span10">
-          <script type="text/javascript">
-            var xaxis = []
-            var salary_yaxis = []
-            var open_housing_yaxis = []
-            var unemployment_data = []
-            var hours_worked_data = []
-            var housing_cost_data = []
-            var student_loan_pmt = []
-            "<% @cities_jobs_wages.each do |job| %>"
-              student_loan_pmt.push("<%= (job.wage * 40 * 54) - (@job.student_loan_pmt * 12) %>")
-              salary_yaxis.push("<%= job.wage * 40 * 54 %>")
-             " <% end %>"
-            "<%= @cities.each do |city| %>"
-              xaxis.push("<%= city.name %>")
-              open_housing_yaxis.push("<%= city.open_housing %>")
-              unemployment_data.push("<%= city.unemployment.to_f.round(2) * 100 %>")
-              hours_worked_data.push("<%= city.weekly_hours_worked %>")
-              housing_cost_data.push("<%= city.housing_cost %>")
-            "<% end %>"
-          </script>
-        <!--  salary -->
-      <div class="col-sm-9">
-        <canvas id="salary_chart"></canvas>
-        <div id="legend"class="col-sm-3">
-          <ul>
-            <li><span id="salary"></span>Salary Based On City</li>
-            <li><span id="minus-debt"></span> Salary minus monthly debt * 12</li>
-          </ul>
-        </div>
-      </div>
-      <!-- open housing -->
-      <div class="col-sm-9">
-        <canvas id="open_housing"></canvas>
-        <div id="legend"class="col-sm-3">
-          <ul>
-            <li><span id="open-housing"></span>Percentage of Open Housing</li>
-          </ul>
-        </div>
-      </div>
-      <!-- unemployment -->
-      <div class="row">
-        <div class="col-sm-6">
-          <canvas id="unemployment"></canvas>
-        </div>
-        <div class="col-sm-3 col-sm-offset-1" id="salary-content">
-          <div id="background">
-            <h2>Unemployment Rate By City</h2>
-            <h4> ercentage of unemployed adults compared to the national average by city.</h4>
+      <script type="text/javascript">
+        var xaxis = []
+        var salary_yaxis = []
+        var open_housing_yaxis = []
+        var unemployment_data = []
+        var hours_worked_data = []
+        var housing_cost_data = []
+        var student_loan_pmt = []
+        "<% @cities_jobs_wages.each do |job| %>"
+          student_loan_pmt.push("<%= (job.wage * 40 * 54) - (@job.student_loan_pmt * 12) %>")
+          salary_yaxis.push("<%= job.wage * 40 * 54 %>")
+         " <% end %>"
+        "<%= @cities.each do |city| %>"
+          xaxis.push("<%= city.name %>")
+          open_housing_yaxis.push("<%= city.open_housing %>")
+          unemployment_data.push("<%= city.unemployment.to_f.round(2) * 100 %>")
+          hours_worked_data.push("<%= city.weekly_hours_worked %>")
+          housing_cost_data.push("<%= city.housing_cost %>")
+        "<% end %>"
+      </script>
+      <div id="charts-main" class="col-sm-10">
+          <!--  salary -->
+        <div class="col-sm-9">
+          <canvas id="salary_chart"></canvas>
+          <div id="legend"class="col-sm-3">
+            <ul>
+              <li><span id="salary"></span>Salary Based On City</li>
+              <li><span id="minus-debt"></span> Salary minus monthly debt * 12</li>
+            </ul>
           </div>
         </div>
-      </div>
-
-     <!--  hours worked -->
-     <div class="row">
-      <div class="col-sm-3 col-lg-offset-2" id="salary-content">
-        <div id="background">
-          <h2>Hours Worked By Average Person By City</h2>
-          <h4> Average Weekly hours worked by individuals.</h4>
+        <!-- open housing -->
+        <div class="row">
+          <div class="col-sm-9">
+            <canvas id="open_housing"></canvas>
+            <div id="legend"class="col-sm-3">
+              <ul>
+                <li><span id="open-housing"></span>Percentage of Open Housing</li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="col-sm-5 col-sm-offset-6">
-        <canvas id="hours-worked"></canvas>
-      </div>
-    </div>
-        <!-- housing cost  -->
-      <div class="row">
-        <div class="col-sm-6">
-          <canvas id="housing_cost"></canvas>
+        <!-- unemployment -->
+        <div class="row">
+          <div class="col-sm-8">
+            <canvas id="unemployment"></canvas>
+            <div id="legend"class="col-sm-3">
+              <ul>
+                <li><span id="unemployment"></span>Percentage of Unemployed workers by city</li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="col-sm-3 col-sm-offset-1" id="salary-content">
-          <div id="background">
-            <h2>Housing Costs by City</h2>
-            <h4> Average Housing cost by City comh4ared to the national average.</h4>
+       <!--  hours worked -->
+        <div class="row">
+          <div class="col-sm-9">
+            <canvas id="hours-worked"></canvas>
+          </div>
+        </div>
+          <!-- housing cost  -->
+        <div class="row">
+          <div class="col-sm-9">
+            <canvas id="housing_cost"></canvas>
           </div>
         </div>
       </div>
