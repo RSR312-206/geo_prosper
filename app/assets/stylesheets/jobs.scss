@@ -19,6 +19,38 @@ html,body,div,span,applet,object,iframe,a,abbr,acronym,address,big,cite,code,del
 }
 
 /* job show page*/
+
+/*legend css*/
+#legend {
+  list-style: none;
+  font: bold;
+  color: white;
+  background:RGBA(150, 87, 52, .7);
+  border-radius: 15px;
+  box-shadow: 3px 4px 2px 0px rgba(0,0,0,0.75);
+  padding: 5px;
+  margin: 5px;
+
+}
+#legend li {
+  float: left;
+  margin-right: 10px;
+}
+#legend span {
+  border: 1px solid #ccc;
+  float: left;
+  width: 18px;
+  height: 18px;
+  margin: 2px;
+}
+#legend #salary {
+  background-color: RGBA(36, 43, 58, 1);
+}
+#legend #minus-debt {
+  background-color: RGBA(201, 177, 154, 1);
+}
+
+/*background color and images*/
 #background-show-page {
   background: RGBA(93, 153, 200, 1);
   font-family:'Alegreya Sans', sans-serif;
@@ -30,6 +62,7 @@ html,body,div,span,applet,object,iframe,a,abbr,acronym,address,big,cite,code,del
   height: 10%;
 }
 
+/*table css for show page*/
 #ranking-table {
   border-spacing: 10px;
   border-collapse: separate;
@@ -45,10 +78,11 @@ html,body,div,span,applet,object,iframe,a,abbr,acronym,address,big,cite,code,del
   text-align: center;
 }
 
+/*chart css */
 canvas {
   background: RGBA(255, 255, 255, 1);
   height: 400px;
-  width: 90%;
+  width: 95%;
   padding: 20px;
   margin-left: 10px;
   border-radius: 15px;

@@ -8,7 +8,7 @@ $(function() {
         labels: xaxis,
         datasets: [
             {
-                label: "",
+                label: "Average Salary By City",
                 type: "bar",
                 fillColor: "RGBA(36, 42, 59, 1)",
                 strokeColor: "rgba(220,220,220,1)",
@@ -31,13 +31,15 @@ $(function() {
             }
         ]
     };
-
-  new Chart(salary_chart).Overlay(s_data, {
-     scaleLabel:
-      function(label){return  '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") },
-     scaleFontSize: 12,
-     scaleBeginAtZero : false
+  var overlayChart = new Chart(salary_chart).Overlay(s_data, {
+     scaleFontSize: 0,
+     scaleShowLabels: false,
+     scaleBeginAtZero: false,
+     multiTooltipTemplate : function (label) {
+      return label.datasetLabel + ': $' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
   })
+
 
 //open housing
   var open_housing_data = {
