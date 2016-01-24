@@ -1,7 +1,7 @@
 html,body,div,span,applet,object,iframe,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,label,legend,p,blockquote,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;}body{line-height:1;color:black;background:white;}:focus{outline:0;}table{border-collapse:collapse;border-spacing:0;}caption,th,td{text-align:left;font-weight:normal;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}ol,ul{list-style:none;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}blockquote:before,blockquote:after,q:before,q:after{content:"";}blockquote,q{quotes:"" "";}abbr,acronym{border:0;}
 
 #background-pic {
- background: url(http://steelencounters.com/communities/5/004/011/645/585//images/4597996463.jpg) no-repeat center center fixed;
+ background: url(https://upload.wikimedia.org/wikipedia/commons/6/62/Salt_Lake_City_skyline,_August_2011.jpg) no-repeat center center fixed;
  background-size: cover;
 }
 
@@ -20,5 +20,27 @@ html,body,div,span,applet,object,iframe,a,abbr,acronym,address,big,cite,code,del
 #cityscape {
   height: 300px;
   width: auto;
+}
+/* about me page */
+#about-me {
+  background: url(https://upload.wikimedia.org/wikipedia/commons/6/62/Salt_Lake_City_skyline,_August_2011.jpg)  no-repeat center center fixed;
+  background-size: cover;
+  font-size: 20px;
+}
+
+#about-me-blurb {
+  width: 350px;
+}
+#legend-about-page li {
+  text-align: center;
+  float: left;
+  margin-right: 10px;
+}
+#legend-about-page span {
+  border: 1px solid #ccc;
+  float: left;
+  width: 18px;
+  height: 18px;
+  margin: 2px;
 }
 

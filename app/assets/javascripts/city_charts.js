@@ -61,7 +61,7 @@ function fillArray(value, len) {
                 type: "bar",
                 fillColor: "RGBA(125, 37, 51, 1)",
                 strokeColor: "RGBA(125, 37, 51, 1)",
-                pointColor: "rgba(220,220,220,1)",
+                pointColor: "RGBA(34, 40, 48, 1)",
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(220,220,220,1)",
@@ -70,9 +70,10 @@ function fillArray(value, len) {
             {
                label: "National Average",
                type: "line",
-               fillColor: "rgba(151,187,205,0.5)",
-               strokeColor: "rgba(151,187,205,0.8)",
-               highlightFill: "rgba(151,187,205,0.75)",
+               fillColor: "rgba(220,220,220,0)",
+               pointColor: "RGBA(34, 40, 48, 1)",
+               strokeColor: "RGBA(34, 40, 48, 1)",
+               highlightFill: "RGBA(255, 255, 255, 1)",
                highlightStroke: "rgba(151,187,205,1)",
                data: fillArray(88, xaxis.length)
             }
@@ -103,7 +104,7 @@ function fillArray(value, len) {
             type: "line",
             fillColor: "RGBA(79, 74, 72, 1)",
             strokeColor: "rgba(220,220,220,1)",
-            pointColor: "rgba(220,220,220,1)",
+            pointColor: "RGBA(93, 129, 121, 1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
@@ -112,8 +113,9 @@ function fillArray(value, len) {
         {
            label: "National Average",
            type: "line",
-           fillColor: "rgba(151,187,205,0.5)",
-           strokeColor: "rgba(151,187,205,0.8)",
+           fillColor: "rgba(220,220,220,0)",
+           pointColor: "RGBA(93, 129, 121, 1)",
+           strokeColor: "RGBA(34, 40, 48, 1)",
            highlightFill: "rgba(151,187,205,0.75)",
            highlightStroke: "rgba(151,187,205,1)",
            data: fillArray(7.2, xaxis.length)
@@ -142,7 +144,7 @@ function fillArray(value, len) {
           type: "line",
           fillColor: "RGBA(83, 132, 122, 1)",
           strokeColor: "rgba(220,220,220,1)",
-          pointColor: "rgba(220,220,220,1)",
+          pointColor: "RGBA(34, 40, 48, 1)",
           pointStrokeColor: "#fff",
           pointHighlightFill: "#fff",
           pointHighlightStroke: "rgba(220,220,220,1)",
@@ -151,9 +153,9 @@ function fillArray(value, len) {
       {
           label: "National Average",
           type: "line",
-          fillColor: "RGBA(89, 89, 95, .5)",
-          strokeColor: "rgba(220,220,220,1)",
-          pointColor: "rgba(220,220,220,1)",
+          fillColor: "rgba(220,220,220,0)",
+          pointColor: "RGBA(34, 40, 48, 1)",
+          strokeColor: "RGBA(34, 40, 48, 1)",
           pointStrokeColor: "#fff",
           pointHighlightFill: "#fff",
           pointHighlightStroke: "rgba(220,220,220,1)",
@@ -189,20 +191,21 @@ function fillArray(value, len) {
                 type: "line",
                 fillColor: "RGBA(250, 203, 112, 1)",
                 strokeColor: "RGBA(125, 37, 51, 1)",
-                pointColor: "rgba(220,220,220,1)",
+                pointColor: "RGBA(34, 40, 48, 1)",
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "RGBA(245, 202, 120, 1)",
                 data: housing_cost_data
             },
             {
-               label: "National Average",
-               type: "line",
-               fillColor: "RGBA(89, 89, 95, .5)",
-               strokeColor: "rgba(151,187,205,0.8)",
-               highlightFill: "rgba(151,187,205,0.75)",
-               highlightStroke: "rgba(151,187,205,1)",
-               data: fillArray(173900, xaxis.length)
+              label: "National Average",
+              type: "line",
+              fillColor: "rgba(220,220,220,0)",
+              pointColor: "RGBA(34, 40, 48, 1)",
+              strokeColor: "RGBA(34, 40, 48, 1)",
+              highlightFill: "rgba(151,187,205,0.75)",
+              highlightStroke: "rgba(151,187,205,1)",
+              data: fillArray(173900, xaxis.length)
             }
         ]
     };
