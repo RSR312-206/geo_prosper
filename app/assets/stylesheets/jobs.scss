@@ -85,6 +85,7 @@ html,body,div,span,applet,object,iframe,a,abbr,acronym,address,big,cite,code,del
 
 /*top cities table css for show page*/
 #ranking-table {
+  text-align: center;
   border-spacing: 10px;
   border-collapse: separate;
   background: RGBA(193, 193, 193, 1);
@@ -95,11 +96,15 @@ html,body,div,span,applet,object,iframe,a,abbr,acronym,address,big,cite,code,del
   border-radius: 15px;
   box-shadow: 3px 4px 2px 0px rgba(0,0,0,0.75);
 }
+#top-cities {
+  text-align: center;
+}
 
 /* charts css */
 
 #charts-main {
   margin-left: 5px;
+
 }
 canvas {
   background: RGBA(255, 255, 255, 1);
@@ -235,6 +240,8 @@ canvas {
   margin-right: auto ;
   background: RGBA(151, 151, 151, .5)
 }
+
+
 
 
 

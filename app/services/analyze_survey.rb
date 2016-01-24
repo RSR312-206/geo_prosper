@@ -14,7 +14,7 @@ class AnalyzeSurvey
     open_housing = cities.sort_by { |oh| oh.open_housing }
     housing_cost = cities.sort_by { |hc| hc.housing_cost }
     unemployment = cities.sort_by { |u|  u.unemployment }
-    hours_worked = cities.sort_by { |hw| hw.weekly_hours_worked }
+    hours_worked = cities.sort_by { |hw| hw.weekly_hours_worked }.reverse!
 
     wage_rank = 0
     open_housing_rank = 0
