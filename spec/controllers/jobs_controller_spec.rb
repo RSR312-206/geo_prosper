@@ -1,14 +1,15 @@
 require "rails_helper"
 
 RSpec.describe JobsController, :type => :controller do
-  describe "GET #show" do
-    it "responds successfully with an HTTP 200 status code" do
-      get :show
-      expect(response).to be_success
-      expect(response).to have_http_status(200)
+  describe "POST #create" do
+    let(:job) {Job.create!(student_loan_pmt: 100, job_title: "Chemists")}
+    it "creates a new job record with the right params" do
+      p response
+       expect(:job).record.to eq(1)
+       # expect(:job)).record.length.to eq(0)
     end
 
-    it "returns error if no salary data is present" do
+    xit "returns error if no salary data is present" do
       get :show
       if @job.message.nil?
       expect { raise StandardError }.to raise_error
@@ -16,3 +17,5 @@ RSpec.describe JobsController, :type => :controller do
     end
   end
 end
+
+

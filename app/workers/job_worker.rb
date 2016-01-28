@@ -19,7 +19,6 @@ class JobWorker
       'seriesid' => series_ids,
       'registrationKey' => ENV['BLS']
     }
-
     response = Excon.post("http://api.bls.gov/publicAPI/v2/timeseries/data/",
       body: body.to_json,
       headers: { "Content-Type" => "application/json" }
